@@ -1,0 +1,18 @@
+{
+  "name": "blog-docs",
+  "version": "1.0.0",
+  "description": "The document of blog.",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "keywords": [
+    "vitepress",
+    "blog"
+  ],
+  "author": "zerotower69<zerotower@163.com>",
+  "devDependencies": {
+    "vitepress": "1.0.0-rc.44"
+  }
+}

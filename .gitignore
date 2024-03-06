@@ -21,3 +21,6 @@ apps/*/*.log
 
 # backend yaml config file
 apps/backend/application.prod.yaml
+
+#docs
+/docs/.vitepress/cache/
