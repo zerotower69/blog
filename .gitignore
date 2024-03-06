@@ -1,0 +1,23 @@
+# packages
+node_modules
+apps/*/node_modules
+
+# Nuxt dev/build outputs
+app/web/.output
+app/web/.data
+app/web/.nuxt
+app/web/.nitro
+app/web/.cache
+app/*/dist
+
+# Logs
+apps/*logs
+apps/*/*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# backend yaml config file
+apps/backend/application.prod.yaml

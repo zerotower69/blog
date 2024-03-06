@@ -1,0 +1,21 @@
+{
+  "name": "zero-blog",
+  "version": "1.0.0",
+  "description": "Blog for zerotower!",
+  "private": true,
+  "scripts": {
+    "lint": "",
+    "format": "",
+    "start:dev": "",
+    "start:prod": "",
+    "start:docker:mac": "docker compose -f docker-compose.mac.yaml up -d"
+  },
+  "keywords": ["blog","vue","mysql","redis","nestjs","nuxt"],
+  "author": "zerotower69<zerotower@163.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zerotower69/blog",
+    "home_page": ""
+  }
+}
