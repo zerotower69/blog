@@ -3,7 +3,7 @@ node_modules
 apps/*/node_modules
 
 # backend(nestjs) output
-apps/backend/dist/
+/apps/backend/dist/
 
 # Nuxt dev/build outputs
 apps/web/.output
@@ -14,7 +14,7 @@ apps/web/.cache
 apps/*/dist
 
 # admin output
-apps/admin-web/dist
+/apps/admin-web/dist/
 
 # Logs
 apps/*logs
@@ -31,3 +31,4 @@ apps/backend/application.prod.yaml
 #docs
 /docs/.vitepress/cache/
 
+/apps/admin-web/.vscode/
