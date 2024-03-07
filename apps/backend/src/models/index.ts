@@ -3,3 +3,11 @@ export * from './user.model';
 export * from './role.model';
 export * from "./permission.model"
 export * from "./rolePermission.model"
+export * from "./article.model"
+export * from "./about.model"
+export * from "./comment.model"
+export * from "./image.model"
+export * from "./links.model"
+export * from "./message.model"
+export * from "./tag.model"
+export * from "./works.model"

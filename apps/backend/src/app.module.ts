@@ -4,7 +4,21 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { getConfig } from './config';
-import { UserModel, RoleModel, UserRoleModel,PermissionModel,RolePermissionModel} from './models';
+import {
+  UserModel,
+  RoleModel,
+  UserRoleModel,
+  PermissionModel,
+  RolePermissionModel,
+  ArticleModel,
+  AboutModel,
+  CommentModel,
+  ImageModel,
+  LinksModel,
+  MessageModel,
+  TagModel,
+  WorksModel,
+} from './models';
 import { UserModule } from './user/user.module';
 import { WinstonModule } from './winston/winston.module';
 import { transports, format } from 'winston';
@@ -21,7 +35,8 @@ import { Type } from '@nestjs/common/interfaces/type.interface';
 import { DynamicModule } from '@nestjs/common/interfaces/modules/dynamic-module.interface';
 import { ForwardReference } from '@nestjs/common/interfaces/modules/forward-reference.interface';
 import { LoginGuard } from './auth/login.guard';
-import {PermissionGuard} from "./auth/permission.guard";
+import { PermissionGuard } from './auth/permission.guard';
+import { BlogModule } from './blog/blog.module';
 
 const config = getConfig();
 
@@ -74,7 +89,21 @@ const defaultModule: Array<
     synchronize: false,
     dialect: 'mysql',
     timezone: '+08:00',
-    models: [UserModel, RoleModel, UserRoleModel,PermissionModel,RolePermissionModel],
+    models: [
+      UserModel,
+      RoleModel,
+      UserRoleModel,
+      PermissionModel,
+      RolePermissionModel,
+      ArticleModel,
+      AboutModel,
+      CommentModel,
+      ImageModel,
+      LinksModel,
+      MessageModel,
+      TagModel,
+      WorksModel,
+    ],
     logging: false,
     ...sqlConfig,
   }),
@@ -120,9 +149,10 @@ if (redisConfig?.enable ?? true) {
       useClass: LoginGuard,
     },
     {
-      provide:APP_GUARD,
-      useClass:PermissionGuard
-    }
+      provide: APP_GUARD,
+      useClass: PermissionGuard,
+    },
+    BlogModule,
   ],
 })
 export class AppModule {}

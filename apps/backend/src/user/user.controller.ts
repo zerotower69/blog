@@ -64,6 +64,12 @@ export class UserController {
     }
   }
 
+  //TODO:完善退出登录逻辑
+  @Get('logout')
+  async logout(){
+    return ResBody.OK()
+  }
+
   @Get('refresh')
   async refresh(@Query('refresh_token') refreshToken:string){
     try{
@@ -104,7 +110,7 @@ export class UserController {
     return this.userService.getList();
   }
 
-  @Get('getDetail')
+  @Get('getUserInfo')
   async getDetail(@Query('token') token:string){
      try {
        const data = this.jwtService.verify(token);
