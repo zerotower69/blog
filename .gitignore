@@ -14,7 +14,7 @@ apps/web/.cache
 apps/*/dist
 
 # admin output
-apps/admin/dist
+apps/admin-web/dist
 
 # Logs
 apps/*logs
