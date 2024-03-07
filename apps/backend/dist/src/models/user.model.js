@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserModel = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
-const typeorm_1 = require("typeorm");
 const role_model_1 = require("./role.model");
 const userRole_model_1 = require("./userRole.model");
 let UserModel = class UserModel extends sequelize_typescript_1.Model {
@@ -26,16 +25,22 @@ __decorate([
 ], UserModel.prototype, "id", void 0);
 __decorate([
     (0, sequelize_typescript_1.Comment)('用户名'),
+    sequelize_typescript_1.Unique,
     (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(50)),
     __metadata("design:type", String)
 ], UserModel.prototype, "username", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Comment)('昵称'),
+    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(50)),
+    __metadata("design:type", String)
+], UserModel.prototype, "nickname", void 0);
 __decorate([
     (0, sequelize_typescript_1.Comment)('密码'),
     (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(100)),
     __metadata("design:type", String)
 ], UserModel.prototype, "password", void 0);
 __decorate([
-    (0, typeorm_1.ManyToMany)(() => role_model_1.RoleModel, () => userRole_model_1.UserRoleModel),
+    (0, sequelize_typescript_1.BelongsToMany)(() => role_model_1.RoleModel, () => userRole_model_1.UserRoleModel),
     __metadata("design:type", Array)
 ], UserModel.prototype, "roles", void 0);
 exports.UserModel = UserModel = __decorate([

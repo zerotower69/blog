@@ -1,9 +1,9 @@
 import {
   Body,
-  Controller,
+  Controller, Delete,
   Get,
   Inject,
-  Post,
+  Post, Query,
   Res,
   UseGuards,
 } from '@nestjs/common';
@@ -35,6 +35,7 @@ export class UserController {
         user: {
           id: foundUser.id,
           username: foundUser.username,
+          roles:foundUser.roles
         },
       });
       response.setHeader('token', token);
@@ -53,5 +54,10 @@ export class UserController {
   @Get('all')
   getAll() {
     return this.userService.getList();
+  }
+
+  @Delete('/')
+  deleteOne(@Query('id') userId:number){
+    return this.userService.deleteOne(userId)
   }
 }

@@ -4,7 +4,9 @@
   "description": "Blog for zerotower!",
   "private": true,
   "scripts": {
-    "preinstall": "npm i -g pnpm",
+    "clear": "",
+    "reinstall": "npm run apps/admin reinstall && npm run apps/backend reinstall && npm run apps/web reinstall:web",
+    "bootstrap": "pnpm install -w",
     "lint": "",
     "format": "",
     "start:dev": "",
@@ -17,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zerotower69/blog",
-    "home_page": ""
-  }
+    "url": "https://github.com/zerotower69/blog"
+  },
+  "homepage": ""
 }

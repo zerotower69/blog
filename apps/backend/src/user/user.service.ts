@@ -9,12 +9,16 @@ import { Res } from '../response';
 import { LoginDto } from './dto/login.dto';
 import { REDIS_TOKEN } from '../redis/redis.module';
 import Redis from 'ioredis';
+import {ForgetDto} from "./dto/forget.dto";
+import {RoleModel, UserRoleModel} from "../models";
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectModel(UserModel)
     private userModel: typeof UserModel,
+    @InjectModel(RoleModel)
+    private roleModel:typeof RoleModel
   ) {}
 
   @Inject(WINSTON_LOGGER_TOKEN)
@@ -53,6 +57,14 @@ export class UserService {
       where: {
         username: user.username,
       },
+      include:[
+        {
+          model:RoleModel,
+          attributes:["id",'code','name'],
+          //中间关联表的字段
+          through:{attributes:[]}
+        }
+      ]
     });
 
     if (!foundUser) {
@@ -68,10 +80,66 @@ export class UserService {
   async getList() {
     const list = await this.userModel.findAll({
       attributes: {
+        //用户表查询不需要该字段
         exclude: ['password'],
       },
+      //关联的用户表需要的字段
+      include:[{
+        model:RoleModel,
+        attributes:["id",'code','name'],
+        //中间关联表的字段
+        through:{attributes:[]}
+      }],
     });
     return Res.List(list);
+  }
+
+  //删除用户
+  async deleteOne(userId:number){
+     const foundUser = await this.userModel.findByPk(userId);
+     if(foundUser){
+       if(foundUser.username === 'admin'){
+         return  Res.Error('管理员不能删除')
+       } else{
+         try{
+           await this.userModel.destroy({
+             where:{
+               id:userId
+             }
+           })
+           return Res.Result(204,null,'ok')
+         } catch (e){
+           return Res.Error(e.message)
+         }
+       }
+     } else{
+       return Res.Error('用户不存在')
+     }
+  }
+
+  //TODO:普通用户重置密码
+  async resetUserPassword(user:ForgetDto){
+
+  }
+
+  //TODO:普通用户修改个人信息
+  async resetUserInfo(user){
+
+  }
+
+  //TODO:修改管理员密码
+  async resetAdminPassword(user){
+
+  }
+
+  //TODO:设置用户角色
+  async resetUserRole(user){
+
+  }
+
+  //TODO:获取用户信息
+  async getUserInfo(userId:number){
+
   }
 
   //分页获取用户列表
@@ -85,4 +153,6 @@ export class UserService {
     });
     return Res.Page(rows, page, count);
   }
+
+
 }

@@ -30,8 +30,8 @@ let LoginGuard = class LoginGuard {
         }
         const token = bearer[1];
         try {
-            const info = this.jwtService.verify(token);
-            request.user = info.user;
+            const data = this.jwtService.verify(token);
+            (request).user = data.user;
             return true;
         }
         catch (e) {

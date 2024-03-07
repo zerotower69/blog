@@ -1,5 +1,7 @@
-import { Controller, Get } from '@nestjs/common';
+import {Controller, Get} from '@nestjs/common';
 import { AppService } from './app.service';
+import {Res} from "./response"
+import {Perm} from "./auth/permission.decorator";
 
 @Controller()
 export class AppController {
@@ -7,6 +9,12 @@ export class AppController {
 
   @Get()
   getHello() {
-    return this.appService.getHello();
+    return Res.OK()
+  }
+
+  @Get('bb')
+  @Perm('user:del')
+  test(){
+    return Res.OK('测试')
   }
 }

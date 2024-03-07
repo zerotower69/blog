@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoleModel = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
+const permission_model_1 = require("./permission.model");
+const rolePermission_model_1 = require("./rolePermission.model");
 let RoleModel = class RoleModel extends sequelize_typescript_1.Model {
 };
 exports.RoleModel = RoleModel;
@@ -23,6 +25,7 @@ __decorate([
 ], RoleModel.prototype, "id", void 0);
 __decorate([
     (0, sequelize_typescript_1.Comment)('角色标识'),
+    sequelize_typescript_1.Unique,
     (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(30)),
     __metadata("design:type", String)
 ], RoleModel.prototype, "code", void 0);
@@ -31,10 +34,14 @@ __decorate([
     (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(30)),
     __metadata("design:type", String)
 ], RoleModel.prototype, "name", void 0);
+__decorate([
+    (0, sequelize_typescript_1.BelongsToMany)(() => permission_model_1.PermissionModel, () => rolePermission_model_1.RolePermissionModel),
+    __metadata("design:type", Array)
+], RoleModel.prototype, "permissions", void 0);
 exports.RoleModel = RoleModel = __decorate([
     (0, sequelize_typescript_1.Table)({
         tableName: 't_role',
-        timestamps: false,
+        timestamps: true,
     })
 ], RoleModel);
 //# sourceMappingURL=role.model.js.map

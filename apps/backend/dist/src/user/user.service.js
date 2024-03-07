@@ -22,9 +22,11 @@ const utils_1 = require("../utils");
 const response_1 = require("../response");
 const redis_module_1 = require("../redis/redis.module");
 const ioredis_1 = require("ioredis");
+const models_1 = require("../models");
 let UserService = class UserService {
-    constructor(userModel) {
+    constructor(userModel, roleModel) {
         this.userModel = userModel;
+        this.roleModel = roleModel;
     }
     async register(user) {
         const foundUser = await this.userModel.findOne({
@@ -51,6 +53,13 @@ let UserService = class UserService {
             where: {
                 username: user.username,
             },
+            include: [
+                {
+                    model: models_1.RoleModel,
+                    attributes: ["id", 'code', 'name'],
+                    through: { attributes: [] }
+                }
+            ]
         });
         if (!foundUser) {
             throw new common_1.HttpException('用户名不存在', 400);
@@ -65,8 +74,47 @@ let UserService = class UserService {
             attributes: {
                 exclude: ['password'],
             },
+            include: [{
+                    model: models_1.RoleModel,
+                    attributes: ["id", 'code', 'name'],
+                    through: { attributes: [] }
+                }],
         });
         return response_1.Res.List(list);
+    }
+    async deleteOne(userId) {
+        const foundUser = await this.userModel.findByPk(userId);
+        if (foundUser) {
+            if (foundUser.username === 'admin') {
+                return response_1.Res.Error('管理员不能删除');
+            }
+            else {
+                try {
+                    await this.userModel.destroy({
+                        where: {
+                            id: userId
+                        }
+                    });
+                    return response_1.Res.Result(204, null, 'ok');
+                }
+                catch (e) {
+                    return response_1.Res.Error(e.message);
+                }
+            }
+        }
+        else {
+            return response_1.Res.Error('用户不存在');
+        }
+    }
+    async resetUserPassword(user) {
+    }
+    async resetUserInfo(user) {
+    }
+    async resetAdminPassword(user) {
+    }
+    async resetUserRole(user) {
+    }
+    async getUserInfo(userId) {
     }
     async getListByPage(page = 1, limit = 10) {
         const { rows, count } = await this.userModel.findAndCountAll({
@@ -91,6 +139,7 @@ __decorate([
 exports.UserService = UserService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, sequelize_1.InjectModel)(user_model_1.UserModel)),
-    __metadata("design:paramtypes", [Object])
+    __param(1, (0, sequelize_1.InjectModel)(models_1.RoleModel)),
+    __metadata("design:paramtypes", [Object, Object])
 ], UserService);
 //# sourceMappingURL=user.service.js.map

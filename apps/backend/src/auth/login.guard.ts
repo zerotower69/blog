@@ -9,6 +9,17 @@ import {
 import { Request } from 'express';
 import { Observable } from 'rxjs';
 import { Reflector } from '@nestjs/core';
+import {RoleModel} from "../models";
+
+declare module "express"{
+  interface Request{
+    user:{
+      username:string;
+      userId:number;
+      roles:RoleModel[]
+    }
+  }
+}
 
 @Injectable()
 export class LoginGuard implements CanActivate {
@@ -41,8 +52,8 @@ export class LoginGuard implements CanActivate {
     const token = bearer[1];
 
     try {
-      const info = this.jwtService.verify(token);
-      (request as any).user = info.user;
+      const data = this.jwtService.verify(token);
+      (request).user = data.user;
       return true;
     } catch (e) {
       throw new UnauthorizedException('登录 token 失效，请重新登录');

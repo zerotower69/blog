@@ -7,4 +7,9 @@ export declare class AppController {
         data: unknown;
         message: string;
     };
+    test(): {
+        code: number;
+        data: unknown;
+        message: string;
+    };
 }

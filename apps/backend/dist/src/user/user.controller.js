@@ -32,6 +32,7 @@ let UserController = class UserController {
                 user: {
                     id: foundUser.id,
                     username: foundUser.username,
+                    roles: foundUser.roles
                 },
             });
             response.setHeader('token', token);
@@ -46,6 +47,9 @@ let UserController = class UserController {
     }
     getAll() {
         return this.userService.getList();
+    }
+    deleteOne(userId) {
+        return this.userService.deleteOne(userId);
     }
 };
 exports.UserController = UserController;
@@ -71,6 +75,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "getAll", null);
+__decorate([
+    (0, common_1.Delete)('/'),
+    __param(0, (0, common_1.Query)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "deleteOne", null);
 exports.UserController = UserController = __decorate([
     (0, common_1.Controller)('user'),
     __param(1, (0, common_1.Inject)(jwt_1.JwtService)),

@@ -25,10 +25,14 @@ __decorate([
 ], UserRoleModel.prototype, "id", void 0);
 __decorate([
     (0, sequelize_typescript_1.ForeignKey)(() => role_model_1.RoleModel),
+    (0, sequelize_typescript_1.Comment)('角色id'),
+    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.INTEGER),
     __metadata("design:type", Number)
 ], UserRoleModel.prototype, "role_id", void 0);
 __decorate([
     (0, sequelize_typescript_1.ForeignKey)(() => user_model_1.UserModel),
+    (0, sequelize_typescript_1.Comment)('用户id'),
+    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.INTEGER),
     __metadata("design:type", Number)
 ], UserRoleModel.prototype, "user_id", void 0);
 exports.UserRoleModel = UserRoleModel = __decorate([

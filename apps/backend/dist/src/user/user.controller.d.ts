@@ -21,4 +21,13 @@ export declare class UserController {
         list: import("../models").UserModel[];
         total: number;
     }>;
+    deleteOne(userId: number): Promise<{
+        code: number;
+        data: unknown;
+        message: string;
+    } | {
+        code: 204;
+        data: any;
+        message: string;
+    }>;
 }

@@ -2,13 +2,19 @@
 node_modules
 apps/*/node_modules
 
+# backend(nestjs) output
+apps/backend/dist/
+
 # Nuxt dev/build outputs
-app/web/.output
-app/web/.data
-app/web/.nuxt
-app/web/.nitro
-app/web/.cache
-app/*/dist
+apps/web/.output
+apps/web/.data
+apps/web/.nuxt
+apps/web/.nitro
+apps/web/.cache
+apps/*/dist
+
+# admin output
+apps/admin/dist
 
 # Logs
 apps/*logs
@@ -24,3 +30,4 @@ apps/backend/application.prod.yaml
 
 #docs
 /docs/.vitepress/cache/
+

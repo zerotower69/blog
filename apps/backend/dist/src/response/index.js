@@ -9,8 +9,8 @@ class Res {
             message,
         };
     }
-    static OK(message = 'ok', data = null) {
-        return Res.Result(200, data, message);
+    static OK(message = 'ok', code = 200, data = null) {
+        return Res.Result(code, data, message);
     }
     static OKWithPage(list, page = 1, total = 0, message = 'ok') {
         return Res.Result(200, Res.Page(list, page, total), message);
@@ -18,11 +18,11 @@ class Res {
     static OkWithList(list, message = 'ok') {
         return Res.Result(200, Res.List(list), message);
     }
-    static Error(message = 'error', data = null) {
-        return Res.Result(400, data, message);
+    static Error(message = 'error', code = 400, data = null) {
+        return Res.Result(code, data, message);
     }
-    static ServerError(message = 'server error', data = null) {
-        return Res.Result(500, data, message);
+    static ServerError(message = 'server error', code = 500, data = null) {
+        return Res.Result(code, data, message);
     }
     static Page(list, page = 1, total = 0) {
         if (!total && list.length) {

@@ -1,16 +1,16 @@
 export declare class Res {
-    static Result<D>(code: number, data: D, message: string): {
-        code: number;
+    static Result<D, C extends number>(code: C, data: D, message: string): {
+        code: C;
         data: D;
         message: string;
     };
-    static OK<D>(message?: string, data?: D | null): {
+    static OK<D>(message?: string, code?: number, data?: D | null): {
         code: number;
         data: D;
         message: string;
     };
     static OKWithPage<D>(list: D[], page?: number, total?: number, message?: string): {
-        code: number;
+        code: 200;
         data: {
             list: D[];
             page: number;
@@ -19,19 +19,19 @@ export declare class Res {
         message: string;
     };
     static OkWithList<D>(list: D[], message?: string): {
-        code: number;
+        code: 200;
         data: {
             list: D[];
             total: number;
         };
         message: string;
     };
-    static Error<D>(message?: string, data?: D | null): {
+    static Error<D>(message?: string, code?: number, data?: D | null): {
         code: number;
         data: D;
         message: string;
     };
-    static ServerError<D>(message?: string, data?: D | null): {
+    static ServerError<D>(message?: string, code?: number, data?: D | null): {
         code: number;
         data: D;
         message: string;

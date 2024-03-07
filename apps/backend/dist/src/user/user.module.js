@@ -9,17 +9,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserModule = void 0;
 const common_1 = require("@nestjs/common");
 const user_service_1 = require("./user.service");
+const role_service_1 = require("./role.service");
 const user_controller_1 = require("./user.controller");
 const sequelize_1 = require("@nestjs/sequelize");
-const user_model_1 = require("../models/user.model");
+const models_1 = require("../models");
 let UserModule = class UserModule {
 };
 exports.UserModule = UserModule;
 exports.UserModule = UserModule = __decorate([
     (0, common_1.Module)({
-        imports: [sequelize_1.SequelizeModule.forFeature([user_model_1.UserModel])],
+        imports: [sequelize_1.SequelizeModule.forFeature([models_1.UserModel, models_1.RoleModel, models_1.PermissionModel])],
         controllers: [user_controller_1.UserController],
-        providers: [user_service_1.UserService],
+        providers: [user_service_1.UserService, role_service_1.RoleService],
+        exports: [user_service_1.UserService, role_service_1.RoleService]
     })
 ], UserModule);
 //# sourceMappingURL=user.module.js.map

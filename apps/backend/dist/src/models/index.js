@@ -17,4 +17,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./userRole.model"), exports);
 __exportStar(require("./user.model"), exports);
 __exportStar(require("./role.model"), exports);
+__exportStar(require("./permission.model"), exports);
+__exportStar(require("./rolePermission.model"), exports);
 //# sourceMappingURL=index.js.map

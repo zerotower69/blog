@@ -5,7 +5,7 @@ import {
   PrimaryKey,
   Model,
   Table,
-  Comment,
+  Comment, Unique, BelongsToMany,
 } from 'sequelize-typescript';
 import { ManyToMany } from 'typeorm';
 import { RoleModel } from './role.model';
@@ -25,13 +25,18 @@ export class UserModel extends Model {
   id: number;
 
   @Comment('用户名')
+  @Unique
   @Column(DataType.STRING(50))
   username: string;
+
+  @Comment('昵称')
+  @Column(DataType.STRING(50))
+  nickname:string;
 
   @Comment('密码')
   @Column(DataType.STRING(100))
   password: string;
 
-  @ManyToMany(() => RoleModel, () => UserRoleModel)
+  @BelongsToMany(() => RoleModel, () => UserRoleModel)
   roles: RoleModel[];
 }

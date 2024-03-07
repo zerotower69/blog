@@ -17,7 +17,9 @@ mysql:
   synchronize: true
   autoLoadModels: true
   # 打印数据库日志（sequelize）
-  logging: false
+  logging: true
+  sync:
+    alert: true
   # 连接池配置
   pool:
     max: 5 # 连接池最大连接数量
@@ -28,8 +30,9 @@ redis:
   enable: true
   host: "localhost"
   port: 6379
-  enableAuth: true
+  enableAuth: false
   password: 12345678
+  database: 0
 logger:
   level: 'debug'
 swagger:

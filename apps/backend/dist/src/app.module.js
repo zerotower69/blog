@@ -26,6 +26,7 @@ const unlogin_filter_1 = require("./exception/unlogin.filter");
 const utils_1 = require("./utils");
 const redis_module_1 = require("./redis/redis.module");
 const login_guard_1 = require("./auth/login.guard");
+const permission_guard_1 = require("./auth/permission.guard");
 const config = (0, config_2.getConfig)();
 const sqlConfig = config['mysql'] ?? {};
 const logConfig = config['logger'] ?? {};
@@ -68,7 +69,7 @@ const defaultModule = [
         synchronize: false,
         dialect: 'mysql',
         timezone: '+08:00',
-        models: [models_1.UserModel, models_1.RoleModel, models_1.UserRoleModel],
+        models: [models_1.UserModel, models_1.RoleModel, models_1.UserRoleModel, models_1.PermissionModel, models_1.RolePermissionModel],
         logging: false,
         ...sqlConfig,
     }),
@@ -113,6 +114,10 @@ exports.AppModule = AppModule = __decorate([
                 provide: core_1.APP_GUARD,
                 useClass: login_guard_1.LoginGuard,
             },
+            {
+                provide: core_1.APP_GUARD,
+                useClass: permission_guard_1.PermissionGuard
+            }
         ],
     })
 ], AppModule);

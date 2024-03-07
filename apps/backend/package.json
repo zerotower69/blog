@@ -6,6 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "bootstrap": "pnpm install",
     "build": "nest build",
     "build:docker>=19.03": "nest build && docker buildx b -t nest-template . --label latest",
     "build:docker": "nest build && docker build -t nest-template:latest .",
@@ -21,7 +22,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "reinstall": "rimraf pnpm-lock.yaml && rimraf npm.lock.json && npm run bootstrap"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.3",

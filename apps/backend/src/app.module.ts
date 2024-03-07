@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { getConfig } from './config';
-import { UserModel, RoleModel, UserRoleModel } from './models';
+import { UserModel, RoleModel, UserRoleModel,PermissionModel,RolePermissionModel} from './models';
 import { UserModule } from './user/user.module';
 import { WinstonModule } from './winston/winston.module';
 import { transports, format } from 'winston';
@@ -21,6 +21,7 @@ import { Type } from '@nestjs/common/interfaces/type.interface';
 import { DynamicModule } from '@nestjs/common/interfaces/modules/dynamic-module.interface';
 import { ForwardReference } from '@nestjs/common/interfaces/modules/forward-reference.interface';
 import { LoginGuard } from './auth/login.guard';
+import {PermissionGuard} from "./auth/permission.guard";
 
 const config = getConfig();
 
@@ -73,7 +74,7 @@ const defaultModule: Array<
     synchronize: false,
     dialect: 'mysql',
     timezone: '+08:00',
-    models: [UserModel, RoleModel, UserRoleModel],
+    models: [UserModel, RoleModel, UserRoleModel,PermissionModel,RolePermissionModel],
     logging: false,
     ...sqlConfig,
   }),
@@ -118,6 +119,10 @@ if (redisConfig?.enable ?? true) {
       provide: APP_GUARD,
       useClass: LoginGuard,
     },
+    {
+      provide:APP_GUARD,
+      useClass:PermissionGuard
+    }
   ],
 })
 export class AppModule {}
