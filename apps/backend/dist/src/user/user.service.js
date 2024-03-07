@@ -41,6 +41,7 @@ let UserService = class UserService {
             await this.userModel.create({
                 username: user.username,
                 password: (0, utils_1.md5)(user.password),
+                nickname: user.nickname
             });
             return response_1.Res.OK('注册成功');
         }
@@ -115,6 +116,19 @@ let UserService = class UserService {
     async resetUserRole(user) {
     }
     async getUserInfo(userId) {
+        const foundUser = await this.userModel.findByPk(userId, {
+            attributes: {
+                exclude: ['password']
+            },
+            include: [
+                {
+                    model: models_1.RoleModel,
+                    attributes: ['id', 'code', 'name'],
+                    through: { attributes: [] }
+                }
+            ]
+        });
+        return foundUser;
     }
     async getListByPage(page = 1, limit = 10) {
         const { rows, count } = await this.userModel.findAndCountAll({

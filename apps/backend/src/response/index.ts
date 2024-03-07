@@ -11,6 +11,11 @@ export class Res {
   static OK<D>(message = 'ok',code=200, data: D | null = null) {
     return Res.Result(code, data, message);
   }
+
+  //成功返回，带数据
+  static OKWithData<D>(data:D|null=null,message='ok',code=200){
+    return Res.Result(code,data,message)
+  }
   //成功返回分页数据
   static OKWithPage<D>(list: D[], page = 1, total = 0, message = 'ok') {
     return Res.Result(200, Res.Page(list, page, total), message);

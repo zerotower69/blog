@@ -32,7 +32,7 @@ export declare class UserService {
     resetUserInfo(user: any): Promise<void>;
     resetAdminPassword(user: any): Promise<void>;
     resetUserRole(user: any): Promise<void>;
-    getUserInfo(userId: number): Promise<void>;
+    getUserInfo(userId: number): Promise<UserModel>;
     getListByPage(page?: number, limit?: number): Promise<{
         list: UserModel[];
         page: number;

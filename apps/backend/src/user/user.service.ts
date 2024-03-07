@@ -41,9 +41,11 @@ export class UserService {
 
     try {
       //create方法合并了build方法和save方法
+      //TODO:注册时实现更多的用户信息字段
       await this.userModel.create({
         username: user.username,
         password: md5(user.password),
+        nickname:user.nickname
       });
       return Res.OK('注册成功');
     } catch (e) {
@@ -137,9 +139,21 @@ export class UserService {
 
   }
 
-  //TODO:获取用户信息
+  //获取用户信息
   async getUserInfo(userId:number){
-
+    const foundUser = await this.userModel.findByPk(userId,{
+      attributes:{
+        exclude:['password']
+      },
+      include:[
+        {
+          model: RoleModel,
+          attributes: ['id','code','name'],
+          through:{attributes:[]}
+        }
+      ]
+    })
+    return foundUser
   }
 
   //分页获取用户列表

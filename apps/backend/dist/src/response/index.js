@@ -12,6 +12,9 @@ class Res {
     static OK(message = 'ok', code = 200, data = null) {
         return Res.Result(code, data, message);
     }
+    static OKWithData(data = null, message = 'ok', code = 200) {
+        return Res.Result(code, data, message);
+    }
     static OKWithPage(list, page = 1, total = 0, message = 'ok') {
         return Res.Result(200, Res.Page(list, page, total), message);
     }
