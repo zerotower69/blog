@@ -1,15 +1,19 @@
 import {
-  AutoIncrement, BelongsToMany,
+  AllowNull,
+  AutoIncrement,
+  BelongsToMany,
   Column,
   Comment,
   DataType,
   Model,
+  NotNull,
   PrimaryKey,
-  Table, Unique,
+  Table,
+  Unique,
 } from 'sequelize-typescript';
-import {PermissionModel} from "./permission.model";
-import {ManyToMany} from "typeorm";
-import {RolePermissionModel} from "./rolePermission.model";
+import { PermissionModel } from './permission.model';
+import { ManyToMany } from 'typeorm';
+import { RolePermissionModel } from './rolePermission.model';
 
 @Table({
   tableName: 't_role',
@@ -23,7 +27,8 @@ export class RoleModel extends Model {
   id: number;
 
   @Comment('角色标识')
-  @Unique
+  @AllowNull(false)
+  @Unique('code_unique')
   @Column(DataType.STRING(30))
   code: string;
 
@@ -31,6 +36,6 @@ export class RoleModel extends Model {
   @Column(DataType.STRING(30))
   name: string;
 
-  @BelongsToMany(()=>PermissionModel,()=>RolePermissionModel)
-  permissions:PermissionModel[]
+  @BelongsToMany(() => PermissionModel, () => RolePermissionModel)
+  permissions: PermissionModel[];
 }

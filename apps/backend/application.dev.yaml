@@ -19,7 +19,7 @@ mysql:
   # 打印数据库日志（sequelize）
   logging: true
   sync:
-    alert: true
+    alter: true
   # 连接池配置
   pool:
     max: 5 # 连接池最大连接数量

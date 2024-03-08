@@ -5,7 +5,11 @@ import {
   PrimaryKey,
   Model,
   Table,
-  Comment, Unique, BelongsToMany,
+  Comment,
+  Unique,
+  BelongsToMany,
+  AllowNull,
+  NotNull,
 } from 'sequelize-typescript';
 import { ManyToMany } from 'typeorm';
 import { RoleModel } from './role.model';
@@ -25,13 +29,15 @@ export class UserModel extends Model {
   id: number;
 
   @Comment('用户名')
-  @Unique
+  @AllowNull(false)
+  @NotNull
+  @Unique('username_unique')
   @Column(DataType.STRING(50))
   username: string;
 
   @Comment('昵称')
   @Column(DataType.STRING(50))
-  nickname:string;
+  nickname: string;
 
   @Comment('密码')
   @Column(DataType.STRING(100))
