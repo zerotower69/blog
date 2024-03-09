@@ -12,6 +12,25 @@ export function getPageOffset(page = 1, limit = 10) {
   return (page - 1) * limit;
 }
 
+//移除null或空的属性
+export function getUpdateData<T extends Record<string, any>>(
+  originData: T,
+  removeId = true,
+) {
+  const data = {
+    ...originData,
+  };
+  Object.keys(data).forEach((key) => {
+    if ([undefined, null].includes(typeof data[key])) {
+      Reflect.deleteProperty(data, key);
+    }
+  });
+  if (removeId && Reflect.has(data, 'id')) {
+    Reflect.deleteProperty(data, 'id');
+  }
+  return data;
+}
+
 export function deleteKey(obj: Record<string, any>, ...keys: string[]) {
   if (typeof obj === 'object') {
     keys.forEach((key) => {

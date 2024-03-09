@@ -353,6 +353,9 @@ importers:
       ioredis:
         specifier: ^5.3.2
         version: 5.3.2
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -3647,7 +3650,7 @@ packages:
       perfect-debounce: 1.0.0
       pkg-types: 1.0.3
       postcss: 8.4.35
-      rollup-plugin-visualizer: 5.12.0(rollup@2.79.1)
+      rollup-plugin-visualizer: 5.12.0(rollup@4.12.1)
       std-env: 3.7.0
       strip-literal: 2.0.0
       ufo: 1.4.0
@@ -15374,6 +15377,7 @@ packages:
       rollup: 2.79.1
       source-map: 0.7.4
       yargs: 17.7.2
+    dev: true
 
   /rollup-plugin-visualizer@5.12.0(rollup@4.12.1):
     resolution: {integrity: sha512-8/NU9jXcHRs7Nnj07PF2o4gjxmm9lXIrZ8r175bT9dK8qoLlvKTwRMArRCMgpMGlq8CTLugRvEmyMeMXIU2pNQ==}
@@ -15405,6 +15409,7 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.3
+    dev: true
 
   /rollup@4.12.1:
     resolution: {integrity: sha512-ggqQKvx/PsB0FaWXhIvVkSWh7a/PCLQAsMjBc+nA2M8Rv2/HG0X6zvixAB7KyZBRtifBUhy5k8voQX/mRnABPg==}

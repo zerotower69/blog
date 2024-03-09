@@ -17,12 +17,32 @@ export class Res {
     return Res.Result(code, data, message);
   }
   //成功返回分页数据
-  static OKWithPage<D>(list: D[], page = 1, total = 0, message = 'ok') {
-    return Res.Result(200, Res.Page(list, page, total), message);
+  static OKWithPage<D>(
+    list: D[],
+    limit: number,
+    page = 1,
+    total = 0,
+    code = 200,
+    message = 'ok',
+  ) {
+    if (!total && list.length) {
+      total = list.length;
+    }
+    const data = {
+      list,
+      limit,
+      total,
+      page,
+    };
+    return Res.Result(code, data, message);
   }
   //成功返回列表数据
   static OkWithList<D>(list: D[], message = 'ok') {
-    return Res.Result(200, Res.List(list), message);
+    const data = {
+      list: list,
+      total: list.length,
+    };
+    return Res.Result(200, data, message);
   }
   //错误返回
   static Error<D>(
@@ -43,7 +63,14 @@ export class Res {
   }
 
   //分页数据
-  static Page<D>(list: D[], limit: number, page = 1, total = 0, code = 200) {
+  static Page<D>(
+    list: D[],
+    limit: number,
+    page = 1,
+    total = 0,
+    code = 200,
+    message = 'ok',
+  ) {
     if (!total && list.length) {
       total = list.length;
     }
@@ -53,7 +80,7 @@ export class Res {
       total,
       limit,
     };
-    return Res.Result(code, data, 'ok');
+    return Res.Result(code, data, message);
   }
 
   //列表数据

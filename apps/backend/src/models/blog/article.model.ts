@@ -31,7 +31,7 @@ export class ArticleModel extends Model {
   id: string;
 
   @Comment('文章标题')
-  @Unique
+  @Unique('title_unique')
   @AllowNull(false)
   @NotNull
   @Column(DataType.STRING(100))

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { BlogController, TagController } from './controller';
+import { BlogController, TagController, ClassController } from './controller';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { BlogService, TagService } from './service';
+import { BlogService, TagService, ClassService } from './service';
 import { ArticleModel, ClassModel, CommentModel, TagModel } from '../models';
 
 @Module({
@@ -13,7 +13,7 @@ import { ArticleModel, ClassModel, CommentModel, TagModel } from '../models';
       CommentModel,
     ]),
   ],
-  controllers: [BlogController, TagController],
-  providers: [BlogService, TagService],
+  controllers: [BlogController, TagController, ClassController],
+  providers: [BlogService, TagService, ClassService],
 })
 export class BlogModule {}

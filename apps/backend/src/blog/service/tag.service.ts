@@ -36,9 +36,9 @@ export class TagService {
   }
 
   //修改标签
-  async modify(id: number, name: string) {
+  async update(id: number, name: string) {
     try {
-      const [tag] = await this.tagModel.update(
+      const [count] = await this.tagModel.update(
         {
           name: name,
         },
@@ -48,8 +48,8 @@ export class TagService {
           },
         },
       );
-      if (tag) {
-        return Res.OK();
+      if (count) {
+        return Res.OKWithData(count);
       } else {
         return Res.Error('更新失败');
       }
@@ -76,7 +76,7 @@ export class TagService {
         limit: limit,
         offset: offset,
       });
-      return Res.Page(data.rows, limit, page, data.count);
+      return Res.OKWithPage(data.rows, limit, page, data.count);
     } catch (e) {
       return Res.Error(e.message);
     }

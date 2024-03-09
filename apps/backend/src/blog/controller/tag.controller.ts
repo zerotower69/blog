@@ -53,7 +53,7 @@ export class TagController {
   @Role('admin')
   @Put('update')
   update(@Body() data: UpdateDto) {
-    return this.tagService.modify(data.id, data.name);
+    return this.tagService.update(data.id, data.name);
   }
 
   //删除标签
