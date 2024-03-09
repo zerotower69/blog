@@ -14,6 +14,7 @@ export default defineConfig({
     presetUno(),
     presetIcons({
       collections: {
+        //@ts-ignore
         antd: () => import("@iconify-icons/ant-design").then((i) => i.default),
         custom: FileSystemIconLoader("./assets/icons", (svg) =>
           svg.replace(/#fff/, "currentColor"),

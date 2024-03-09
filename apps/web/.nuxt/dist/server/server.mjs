@@ -1,1 +1,1 @@
-export { default } from "file:///Users/zerotower/Documents/blog/vue/node_modules/.pnpm/@nuxt+vite-builder@3.10.3_vue@3.4.21/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
+export { default } from "file:///Users/zerotower/Documents/blog/vue/node_modules/.pnpm/@nuxt+vite-builder@3.10.3_less@4.2.0_vue@3.4.21/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"

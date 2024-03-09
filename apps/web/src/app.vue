@@ -2,10 +2,23 @@
 
 <template>
   <a-config-provider>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <div class="AppBox">
+      <nuxt-layout name="header" />
+      <main class="AppMain">
+        <NuxtPage />
+      </main>
+      <nuxt-layout name="footer" />
+    </div>
   </a-config-provider>
 </template>
 
-<style scoped></style>
+<style lang="less">
+@import "@/styles/global";
+.AppBox {
+  background-image: url("@/assets/images/bg/light.webp");
+  background-attachment: fixed;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>

@@ -12,7 +12,9 @@
     "reinstall:web": "rimraf pnpm-lock.yaml && rimraf npm.lock.json && npm run bootstrap"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^6.1.0",
     "@vueuse/core": "^10.9.0",
+    "add": "^2.0.6",
     "ant-design-vue": "^4.1.2",
     "nuxt": "^3.10.3",
     "pinia": "^2.1.7",
@@ -25,6 +27,8 @@
     "@pinia/nuxt": "^0.5.1",
     "@unocss/nuxt": "^0.58.5",
     "@vueuse/nuxt": "^10.9.0",
+    "dotenv": "^16.0.0",
+    "less": "^4.1.2",
     "unocss": "^0.58.5"
   }
 }

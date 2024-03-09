@@ -28,4 +28,4 @@ export { computedAsync, asyncComputed, computedEager, eagerComputed, computedInj
 export { injectHead, useHead, useSeoMeta, useHeadSafe, useServerHead, useServerSeoMeta, useServerHeadSafe } from '@unhead/vue';
 export { defineStore, acceptHMRUpdate, usePinia, storeToRefs } from '../../../node_modules/.pnpm/@pinia+nuxt@0.5.1_vue@3.4.21/node_modules/@pinia/nuxt/dist/runtime/composables';
 export { useNuxtDevTools } from '../../../node_modules/.pnpm/@nuxt+devtools@1.0.8_nuxt@3.10.3_vite@5.1.5/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
-export { definePageMeta } from '../../../node_modules/.pnpm/nuxt@3.10.3_vite@5.1.5/node_modules/nuxt/dist/pages/runtime/composables';
+export { definePageMeta } from '../../../node_modules/.pnpm/nuxt@3.10.3_less@4.2.0_vite@5.1.5/node_modules/nuxt/dist/pages/runtime/composables';

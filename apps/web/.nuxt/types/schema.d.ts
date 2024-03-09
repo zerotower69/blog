@@ -18,7 +18,7 @@ declare module 'nuxt/schema' {
    },
   }
   interface PublicRuntimeConfig {
-
+   ICP_CODE: string,
   }
 }
 declare module 'vue' {

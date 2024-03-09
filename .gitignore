@@ -32,3 +32,7 @@ apps/backend/application.prod.yaml
 /docs/.vitepress/cache/
 
 /apps/admin-web/.vscode/
+
+# web
+/apps/web/.env.production
+/apps/web/.env.local
