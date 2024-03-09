@@ -47,6 +47,7 @@ const footerTags = readonly<{ name: string; link: string }[]>([
 </template>
 
 <style scoped lang="less">
+@import "@/styles/vars";
 .tag-item {
   text-decoration: none;
   color: black;
@@ -54,7 +55,7 @@ const footerTags = readonly<{ name: string; link: string }[]>([
   border-radius: 6px;
   background-color: rgb(185, 232, 255);
   &:hover {
-    background-color: #62a4da;
+    background-color: @hover-color;
   }
 }
 </style>

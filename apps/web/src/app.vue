@@ -2,8 +2,10 @@
 
 <template>
   <a-config-provider>
-    <div class="AppBox">
-      <nuxt-layout name="header" />
+    <div ref="boxRef" class="AppBox">
+      <client-only>
+        <nuxt-layout name="header" />
+      </client-only>
       <main class="AppMain">
         <NuxtPage />
       </main>

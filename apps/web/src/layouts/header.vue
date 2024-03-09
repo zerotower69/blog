@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { readonly } from "vue";
+import { computed, type CSSProperties, onMounted, readonly, watch } from "vue";
+import { useScroll } from "@vueuse/core";
+import { HomeOutlined, SettingOutlined } from "@ant-design/icons-vue";
+import { useAppStore } from "~/store/app";
 
 const navBtns = readonly<{ name: string; link: string }[]>([
   {
@@ -23,11 +26,29 @@ const navBtns = readonly<{ name: string; link: string }[]>([
     link: "/about",
   },
 ]);
-import { HomeOutlined, SettingOutlined } from "@ant-design/icons-vue";
+const { isScrolling, directions, y } = useScroll(document);
+const appStore = useAppStore();
+watch(
+  () => isScrolling.value,
+  (scrolling) => {
+    console.log(scrolling, document.body);
+    if (scrolling) {
+      if (directions.top) {
+        appStore.setHeader(true);
+      } else if (directions.bottom) {
+        appStore.setHeader(false);
+      }
+    }
+  }
+);
+const navStyle = computed<CSSProperties>(() => ({
+  transform: `translateY(${appStore.showHeader ? "0" : "-60px"})`,
+}));
+onMounted(() => {});
 </script>
 
 <template>
-  <nav class="w-100% h-[60px] bg-[rgb(157,222,255)]">
+  <nav class="AppHeader" :style="navStyle">
     <div
       class="w-100% h-100% flex items-center px-[100px] box-border justify-between"
     >
