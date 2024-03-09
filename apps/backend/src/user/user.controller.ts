@@ -16,11 +16,12 @@ import { RegisterDto } from './dto/register.dto';
 import { JwtService } from '@nestjs/jwt';
 import { Response } from 'express';
 import { Res as ResBody } from '../response';
-import { LoginGuard } from '../auth/login.guard';
-import { Auth } from '../auth/auth.decorator';
+import { Auth } from '../auth';
 import { WINSTON_LOGGER_TOKEN } from '../winston/winston.module';
 import { MyLogger } from '../winston/MyLogger';
+import { ApiTags } from '@nestjs/swagger';
 
+ApiTags('用户模块');
 @Controller('user')
 export class UserController {
   constructor(

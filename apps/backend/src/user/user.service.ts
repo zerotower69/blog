@@ -1,7 +1,6 @@
 import { HttpException, Inject, Injectable } from '@nestjs/common';
 import { MyLogger } from '../winston/MyLogger';
 import { WINSTON_LOGGER_TOKEN } from '../winston/winston.module';
-import { UserModel } from '../models/user.model';
 import { InjectModel } from '@nestjs/sequelize';
 import { RegisterDto } from './dto/register.dto';
 import { getPageOffset, md5 } from '../utils';
@@ -9,8 +8,8 @@ import { Res } from '../response';
 import { LoginDto } from './dto/login.dto';
 import { REDIS_TOKEN } from '../redis/redis.module';
 import Redis from 'ioredis';
-import {ForgetDto} from "./dto/forget.dto";
-import {RoleModel, UserRoleModel} from "../models";
+import { ForgetDto } from './dto/forget.dto';
+import { RoleModel, UserRoleModel, UserModel } from '../models';
 
 @Injectable()
 export class UserService {
@@ -18,7 +17,7 @@ export class UserService {
     @InjectModel(UserModel)
     private userModel: typeof UserModel,
     @InjectModel(RoleModel)
-    private roleModel:typeof RoleModel
+    private roleModel: typeof RoleModel,
   ) {}
 
   @Inject(WINSTON_LOGGER_TOKEN)
@@ -45,7 +44,7 @@ export class UserService {
       await this.userModel.create({
         username: user.username,
         password: md5(user.password),
-        nickname:user.nickname
+        nickname: user.nickname,
       });
       return Res.OK('注册成功');
     } catch (e) {
@@ -59,14 +58,14 @@ export class UserService {
       where: {
         username: user.username,
       },
-      include:[
+      include: [
         {
-          model:RoleModel,
-          attributes:["id",'code','name'],
+          model: RoleModel,
+          attributes: ['id', 'code', 'name'],
           //中间关联表的字段
-          through:{attributes:[]}
-        }
-      ]
+          through: { attributes: [] },
+        },
+      ],
     });
 
     if (!foundUser) {
@@ -86,74 +85,68 @@ export class UserService {
         exclude: ['password'],
       },
       //关联的用户表需要的字段
-      include:[{
-        model:RoleModel,
-        attributes:["id",'code','name'],
-        //中间关联表的字段
-        through:{attributes:[]}
-      }],
+      include: [
+        {
+          model: RoleModel,
+          attributes: ['id', 'code', 'name'],
+          //中间关联表的字段
+          through: { attributes: [] },
+        },
+      ],
     });
     return Res.List(list);
   }
 
   //删除用户
-  async deleteOne(userId:number){
-     const foundUser = await this.userModel.findByPk(userId);
-     if(foundUser){
-       if(foundUser.username === 'admin'){
-         return  Res.Error('管理员不能删除')
-       } else{
-         try{
-           await this.userModel.destroy({
-             where:{
-               id:userId
-             }
-           })
-           return Res.Result(204,null,'ok')
-         } catch (e){
-           return Res.Error(e.message)
-         }
-       }
-     } else{
-       return Res.Error('用户不存在')
-     }
+  async deleteOne(userId: number) {
+    const foundUser = await this.userModel.findByPk(userId);
+    if (foundUser) {
+      if (foundUser.username === 'admin') {
+        return Res.Error('管理员不能删除');
+      } else {
+        try {
+          await this.userModel.destroy({
+            where: {
+              id: userId,
+            },
+          });
+          return Res.Result(204, null, 'ok');
+        } catch (e) {
+          return Res.Error(e.message);
+        }
+      }
+    } else {
+      return Res.Error('用户不存在');
+    }
   }
 
   //TODO:普通用户重置密码
-  async resetUserPassword(user:ForgetDto){
-
-  }
+  async resetUserPassword(user: ForgetDto) {}
 
   //TODO:普通用户修改个人信息
-  async resetUserInfo(user){
-
-  }
+  async resetUserInfo(user) {}
 
   //TODO:修改管理员密码
-  async resetAdminPassword(user){
-
-  }
+  async resetAdminPassword(user) {}
 
   //TODO:设置用户角色
-  async resetUserRole(user){
-
-  }
+  async resetUserRole(user) {}
 
   //获取用户信息
-  async getUserInfo(userId:number){
-    const foundUser = await this.userModel.findByPk(userId,{
-      attributes:{
-        exclude:['password']
+  async getUserInfo(userId: number) {
+    const foundUser = await this.userModel.findByPk(userId, {
+      attributes: {
+        exclude: ['password'],
       },
-      include:[
+      include: [
         {
           model: RoleModel,
-          attributes: ['id','code','name'],
-          through:{attributes:[]}
-        }
-      ]
-    })
-    return foundUser
+          attributes: ['id', 'code', 'name'],
+          through: { attributes: [] },
+        },
+      ],
+    });
+    return foundUser;
   }
 
   //分页获取用户列表
@@ -167,6 +160,4 @@ export class UserService {
     });
     return Res.Page(rows, page, count);
   }
-
-
 }

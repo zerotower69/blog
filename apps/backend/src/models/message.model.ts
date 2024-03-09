@@ -44,8 +44,7 @@ export class MessageModel extends Model {
   username: string;
 
   @Comment('内容')
-  @AllowNull(false)
-  @Unique('content_unique')
+  @Default('')
   @Column(DataType.TEXT)
   content: string;
 

@@ -9,6 +9,7 @@ import {
   NotNull,
   PrimaryKey,
   Table,
+  Unique,
 } from 'sequelize-typescript';
 import { ArticleModel } from './article.model';
 import { ArticleTagModel } from './articleTag.model';
@@ -28,6 +29,7 @@ export class TagModel extends Model {
   @Comment('标签名')
   @AllowNull(false)
   @NotNull
+  @Unique('name_unique')
   @Column(DataType.STRING(20))
   name: string;
 

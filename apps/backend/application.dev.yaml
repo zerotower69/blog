@@ -30,8 +30,8 @@ redis:
   enable: true
   host: "localhost"
   port: 6379
-  enableAuth: false
-  password: 12345678
+  enableAuth: true
+  password: '12345678'
   database: 0
 logger:
   level: 'debug'

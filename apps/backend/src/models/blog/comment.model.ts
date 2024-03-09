@@ -57,10 +57,8 @@ export class CommentModel extends Model {
   @Column(DataType.BOOLEAN)
   is_hidden: boolean;
 
-  @ForeignKey(() => CommentModel)
   @Column(DataType.INTEGER)
   parentId: number;
 
-  @BelongsTo(() => CommentModel, 'parentId')
   parent: CommentModel;
 }

@@ -116,6 +116,7 @@ const defaultModule: Array<
     ...sqlConfig,
   }),
   UserModule,
+  BlogModule,
 ];
 if (redisConfig?.enable ?? true) {
   let redisOptions: RedisOptions = {
@@ -160,7 +161,6 @@ if (redisConfig?.enable ?? true) {
       provide: APP_GUARD,
       useClass: PermissionGuard,
     },
-    BlogModule,
   ],
 })
 export class AppModule {}
