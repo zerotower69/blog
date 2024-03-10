@@ -38,19 +38,5 @@ logger:
   level: 'debug'
 swagger:
   enable: true
-bucket:
-  enable: true
-  type: "qiniu" # qiniu/oss/cos/minio
-  qiniu:
-    access_key: "_FmIlvjEu1ZFo9tvImoA7XHtFjDpddxlKSn4KdiE"
-    secret_key: "wuzlv35tRQE98O_Dcd-aiATQh_fXbAyzLjm5gBWM"
-    scope: "duanming"
-    zone: "Zone_z2"
-  oss:
-    access_key: ""
-  cos:
-    access_key: ""
-  minio:
-    path: ""
 
 

@@ -1,8 +1,4 @@
-import {
-  Inject,
-  Injectable,
-  InternalServerErrorException,
-} from '@nestjs/common';
+import { Inject, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { QiniuConfigService } from './qiniu.config.service';
 import { QINIU_CONFIG_SERVICE } from './qiniu.constants';
 import * as qiniu from 'qiniu';
@@ -29,12 +25,11 @@ export class QiniuService {
     });
   }
   //getuploadToken
-  getUploadToken(
-    policyOptions?: qiniu.rs.PutPolicyOptions,
-    macOptions?: qiniu.auth.digest.MacOptions,
-  ) {
+  getUploadToken(policyOptions?: qiniu.rs.PutPolicyOptions, macOptions?: qiniu.auth.digest.MacOptions) {
+    const scope = this.configService.config.scope;
     const putPolicy = new qiniu.rs.PutPolicy({
       ...(policyOptions ?? {}),
+      scope: scope,
     });
     const mac = this.getMac(macOptions);
     return putPolicy.uploadToken(mac);
@@ -63,31 +58,22 @@ export class QiniuService {
    * @param  localPath 本地文件路径
    * @param filename 上传的文件名
    */
-  uploadLocalFile(
-    localPath: string,
-    filename: string | null = null,
-  ): Promise<any> {
+  uploadLocalFile(localPath: string, filename: string | null = null): Promise<any> {
     return new Promise((resolve, reject) => {
       const config = this.getConfConfig();
       const formUploader = new qiniu.form_up.FormUploader(config);
       const putExtra = new qiniu.form_up.PutExtra();
       const uploadToken = this.getUploadToken();
-      formUploader.putFile(
-        uploadToken,
-        filename,
-        localPath,
-        putExtra,
-        function (respErr, respBody, respInfo) {
-          if (respErr) {
-            reject(respErr);
-          } else {
-            resolve({
-              body: respBody,
-              info: respInfo,
-            });
-          }
-        },
-      );
+      formUploader.putFile(uploadToken, filename, localPath, putExtra, function (respErr, respBody, respInfo) {
+        if (respErr) {
+          reject(respErr);
+        } else {
+          resolve({
+            body: respBody,
+            info: respInfo,
+          });
+        }
+      });
     });
   }
 
@@ -103,22 +89,16 @@ export class QiniuService {
       const putExtra = new qiniu.form_up.PutExtra();
       const uploadToken = this.getUploadToken();
 
-      formUploader.put(
-        uploadToken,
-        filename,
-        data,
-        putExtra,
-        function (respErr, respBody, respInfo) {
-          if (respErr) {
-            reject(respErr);
-          } else {
-            resolve({
-              body: respBody,
-              info: respInfo,
-            });
-          }
-        },
-      );
+      formUploader.put(uploadToken, filename, data, putExtra, function (respErr, respBody, respInfo) {
+        if (respErr) {
+          reject(respErr);
+        } else {
+          resolve({
+            body: respBody,
+            info: respInfo,
+          });
+        }
+      });
     });
   }
 
@@ -133,22 +113,16 @@ export class QiniuService {
       const formUploader = new qiniu.form_up.FormUploader(config);
       const putExtra = new qiniu.form_up.PutExtra();
       const uploadToken = this.getUploadToken();
-      formUploader.putStream(
-        uploadToken,
-        filename,
-        rs,
-        putExtra,
-        function (respError, respBody, respInfo) {
-          if (respError) {
-            reject(respError);
-          } else {
-            resolve({
-              body: respBody,
-              info: respInfo,
-            });
-          }
-        },
-      );
+      formUploader.putStream(uploadToken, filename, rs, putExtra, function (respError, respBody, respInfo) {
+        if (respError) {
+          reject(respError);
+        } else {
+          resolve({
+            body: respBody,
+            info: respInfo,
+          });
+        }
+      });
     });
   }
 }

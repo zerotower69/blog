@@ -1,6 +1,19 @@
 #本地配置
 bucket:
   enable: true
-  type: "qiniu"
+  type: "qiniu" # qiniu/oss/cos/minio
   qiniu:
-    bucket:
+    access_key: "_FmIlvjEu1ZFo9tvImoA7XHtFjDpddxlKSn4KdiE"
+    secret_key: "wuzlv35tRQE98O_Dcd-aiATQh_fXbAyzLjm5gBWM"
+    scope: "duanming"
+    zone: "Zone_z2"
+  oss:
+    access_key: ""
+  cos:
+    secret_id: "AKIDhLuLbSXn2CJSQQiyDZp0ESbhuEY3fEwb"
+    secret_key: "xz0534CGMKKIE7xlVClCWjprsep3GOg5"
+    region: "ap-beijing"
+    bucket: "blog-1309506148"
+    url: "cdn.zerotower.cn"
+  minio:
+    path: ""

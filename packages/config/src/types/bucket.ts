@@ -33,18 +33,54 @@ export type BucketConfig<T extends BucketType = 'qiniu'> = {
 
 //七牛云对象存储的配置
 export type QiniuConfig = {
-  access_key: string;
-  secret_key: string;
-  scope: string;
-  //是否启用
-  enableHttps: boolean;
-  zone: QiniuZone;
+  /**
+   * access_key
+   */
+  access_key?: string;
+  /**
+   * secret_key
+   */
+  secret_key?: string;
+  /**
+   * 存储的空间名
+   */
+  scope?: string;
+  /**
+   * 所属区域
+   */
+  zone?: QiniuZone;
+  /**
+   * Mac 实例化的options
+   */
+  mac?: qiniu.auth.digest.MacOptions;
 };
 
 //腾讯云COS的配置
 export type COSConfig = {
-  //是否全局模块
+  /**
+   * 是否全局模块,默认false
+   */
   global?: boolean;
+  /**
+   * secretId
+   */
+  secret_id?: string;
+  /**
+   * secretKey
+   */
+  secret_key?: string;
+  /**
+   * 存储桶名
+   */
+  bucket?: string;
+  /**
+   * 所属区域
+   */
+  region?: string;
+  /**
+   * 绑定的域名
+   */
+  url?: string;
 };
 
 //阿里云OSS的配置

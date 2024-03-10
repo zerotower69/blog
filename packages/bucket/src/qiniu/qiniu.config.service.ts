@@ -1,23 +1,22 @@
 import { Inject, Injectable, Optional } from '@nestjs/common';
-import { QiniuOptions } from './qiniu.options';
+import { QiniuConfig } from '@common/config';
 import { QINIU_MODULE_OPTIONS } from './qiniu.constants';
 
 @Injectable()
 export class QiniuConfigService {
-  private options: QiniuOptions = {};
-
+  private options: QiniuConfig = {};
   constructor(
     @Optional()
     @Inject(QINIU_MODULE_OPTIONS)
-    private readonly qiniuOptions: QiniuOptions,
+    private readonly qiniuOptions: QiniuConfig,
   ) {
     this.options = Object.assign(this.options, qiniuOptions);
   }
 
-  get config(): QiniuOptions {
+  get config(): QiniuConfig {
     return this.options;
   }
-  set config(options: QiniuOptions) {
+  set config(options: QiniuConfig) {
     this.options = Object.assign(this.options, options);
   }
 }

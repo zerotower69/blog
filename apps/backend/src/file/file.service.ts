@@ -7,6 +7,8 @@ import { AddDto } from './dto/add.dto';
 import { computeFileHash, deleteFile, getRelativeFilepath } from '../utils';
 import { Res } from '../response';
 import { Express } from 'express';
+import { QiniuService } from '@common/bucket';
+import { CosService } from '@common/bucket';
 
 @Injectable()
 export class FileService {
@@ -17,6 +19,8 @@ export class FileService {
     private readonly fileOptions: UploadFileOptions,
     @InjectModel(FileModel)
     private fileModel: typeof FileModel,
+    private qiniuService: QiniuService,
+    private cosService: CosService,
   ) {
     this.options = Object.assign(this.options, fileOptions);
   }
@@ -62,18 +66,29 @@ export class FileService {
         await deleteFile(filepath);
         return Res.OKWithData(found);
       }
-      const newData: AddDto = {
-        hash,
-        path: getRelativeFilepath(filepath),
-        filesize: file.size,
-        filename: file.originalname,
-        is_img: true,
-      };
-      const result = await this.addOne(newData);
-      if (!result) {
-        return Res.Error();
+      const resp = await this.cosService.uploadFile(filepath, file.originalname, 'image');
+      if (resp.statusCode === 200) {
+        const location = resp.Location;
+
+        const newData: AddDto = {
+          hash,
+          // path: getRelativeFilepath(filepath),
+          filesize: file.size,
+          filename: file.originalname,
+          bucket: 'cos',
+          url: location,
+          is_img: true,
+        };
+        const result = await this.addOne(newData);
+        if (!result) {
+          return Res.Error();
+        }
+        await deleteFile(filepath);
+        return Res.OKWithData(result);
+      } else {
+        await deleteFile(filepath);
+        return Res.Error('上传失败');
       }
-      return Res.OKWithData(result);
     } catch (e) {
       return Res.Error(e.message ?? e);
     }
