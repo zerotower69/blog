@@ -10,14 +10,19 @@ import type {
   MinioConfig,
   OSSConfig,
   QiniuConfig,
-} from '../../types/config';
+} from './types';
 
-// 获取项目运行环境
+/**
+ * 获取项目运行环境
+ */
 export const getEnv = (): string => {
   return (env as Record<string, any>).RUNNING_ENV;
 };
 export const IS_DEV = getEnv() === 'dev';
-// 读取项目配置
+
+/**
+ * 读取项目配置
+ */
 export function getConfig(): AppConfig {
   const environment = getEnv();
   let localConfig: AppConfig = {};
@@ -46,6 +51,10 @@ type BucketTypeMap = {
   minio: MinioConfig;
 };
 
+/**
+ * 获取响应的对象存储配置
+ * @param type 对象存储的种类
+ */
 export function getBucketConfig<T extends BucketType = 'qiniu'>(
   type: T,
 ): BucketTypeMap[T] {

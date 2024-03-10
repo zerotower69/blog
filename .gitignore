@@ -41,3 +41,6 @@ apps/backend/uploadFile
 # web
 /apps/web/.env.production
 /apps/web/.env.local
+
+# packages
+packages/**/dist

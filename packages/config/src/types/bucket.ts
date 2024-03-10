@@ -5,13 +5,29 @@ export type QiniuZone = keyof typeof qiniu.zone;
 export type BucketType = 'qiniu' | 'oss' | 'cos' | 'minio';
 
 export type BucketConfig<T extends BucketType = 'qiniu'> = {
-  //是否启用
+  /**
+   * 是否启用
+   */
   enable: boolean;
-  //分别支持 七牛云/阿里云/腾讯云/自定义的
+  /**
+   * 分别支持 七牛云/阿里云/腾讯云/自定义的
+   */
   type: T;
+  /**
+   * 七牛云的配置
+   */
   qiniu?: QiniuConfig;
+  /**
+   * 腾讯cos的配置
+   */
   cos?: COSConfig;
+  /**
+   * 阿里对象存储的配置
+   */
   oss?: OSSConfig;
+  /**
+   * minio自定义搭建对象存储的配置
+   */
   minio?: MinioConfig;
 };
 

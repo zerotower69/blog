@@ -7652,3 +7652,771 @@
 {"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 13:02:43","timestamp":"2024-03-10T05:02:43.036Z"}
 {"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 13:02:43","timestamp":"2024-03-10T05:02:43.036Z"}
 {"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 13:02:43","timestamp":"2024-03-10T05:02:43.037Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.449Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.451Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.451Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.451Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.452Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.452Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.452Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.453Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.453Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.453Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.454Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.454Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.454Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.454Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.455Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.455Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.455Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.455Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.455Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.456Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.456Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.456Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.456Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.456Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.456Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.456Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.456Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.457Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.457Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.457Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.457Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:05:18","timestamp":"2024-03-10T06:05:18.458Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.367Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.369Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.369Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.369Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.370Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.370Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.370Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.371Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.371Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.371Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.372Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.372Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.372Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.372Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.372Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.372Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.373Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.373Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.373Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.373Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.373Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.374Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.374Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.374Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.374Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.374Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.374Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.374Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.374Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.374Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.374Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:05:46","timestamp":"2024-03-10T06:05:46.376Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.888Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.890Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.890Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.890Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.891Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.891Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.892Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.892Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.892Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.893Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.893Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.893Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.893Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.893Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.894Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.894Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.895Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.895Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.895Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.895Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.895Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.896Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.896Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.896Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.896Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.896Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.896Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.896Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.896Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.896Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.896Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:14:08","timestamp":"2024-03-10T06:14:08.898Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.604Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.606Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.606Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.606Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.606Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.607Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.607Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.607Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.608Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.608Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.608Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.609Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.609Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.609Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.609Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.609Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.610Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.610Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.611Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.611Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.611Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.611Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.611Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.611Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.612Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.612Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.612Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.612Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.612Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.612Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.612Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:21:50","timestamp":"2024-03-10T06:21:50.614Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.270Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.272Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.272Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.272Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.273Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.273Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.273Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.274Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.274Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.274Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.275Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.275Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.275Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.276Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.276Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.276Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.276Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.276Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.276Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.276Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.277Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.278Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.278Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:23:02","timestamp":"2024-03-10T06:23:02.279Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.906Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.907Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.908Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.909Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.909Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.909Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.909Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.910Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.911Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.911Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.911Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.911Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.911Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.911Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.912Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.912Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.912Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.912Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.912Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.912Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.912Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.912Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.913Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.913Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.913Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.913Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.913Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.913Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.913Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:23:29","timestamp":"2024-03-10T06:23:29.914Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.249Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.251Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.251Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.251Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.252Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.252Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.252Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.253Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.253Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.253Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.254Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.254Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.254Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.254Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.254Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.254Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.256Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.256Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.256Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.256Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.256Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.257Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.258Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:24:27","timestamp":"2024-03-10T06:24:27.259Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.428Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.429Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.429Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.430Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.430Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.430Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.431Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.431Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.431Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.431Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.432Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.432Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.432Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.432Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.432Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.433Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.433Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.434Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.434Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.434Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.434Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.434Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.434Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.435Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.435Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.435Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.435Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.435Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.435Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.435Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.435Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:25:58","timestamp":"2024-03-10T06:25:58.437Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.986Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.987Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.988Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.988Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.988Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.988Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.989Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.989Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.989Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.990Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.990Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.990Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.990Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.990Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.990Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.991Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.991Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.991Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.992Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.992Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.992Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.992Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.992Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.992Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.992Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.993Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.993Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.993Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.993Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.993Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.993Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:33:01","timestamp":"2024-03-10T06:33:01.994Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.597Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.598Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.599Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.599Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.599Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.599Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.600Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.600Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.600Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.601Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.601Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.601Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.601Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.601Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.601Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.602Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.602Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.602Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.603Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.603Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.603Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.603Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.603Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.603Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.603Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.604Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.604Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.604Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.604Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.604Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.604Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:33:12","timestamp":"2024-03-10T06:33:12.605Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.348Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.350Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.350Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.350Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.351Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.351Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.351Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.352Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.352Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.352Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.352Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.353Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.353Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.353Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.353Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.353Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.353Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.353Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.354Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.354Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.354Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.354Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.354Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.354Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.354Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.354Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.354Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.355Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.355Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.355Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.355Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 14:34:07","timestamp":"2024-03-10T06:34:07.356Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.200Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.202Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.202Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.203Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.203Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.203Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.204Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.204Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.204Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.204Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.205Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.205Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.205Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.205Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.205Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.206Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.206Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.206Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.206Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.208Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.208Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.208Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.208Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.208Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.208Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.209Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.209Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.209Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.209Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.209Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.209Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 15:37:51","timestamp":"2024-03-10T07:37:51.211Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.420Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.422Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.422Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.422Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.423Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.423Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.423Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.423Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.424Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.424Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.425Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.425Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.425Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.425Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.426Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.426Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.426Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.426Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.426Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.426Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.427Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.427Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.427Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.427Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.427Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.427Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.427Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.428Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.428Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.428Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.428Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 15:38:09","timestamp":"2024-03-10T07:38:09.429Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.570Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.571Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.571Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.572Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.572Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.572Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.573Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.573Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.573Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.573Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.574Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.574Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.575Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.575Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.575Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.575Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.575Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.575Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.576Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.576Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.576Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.576Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.576Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.576Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.576Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.576Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.577Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.577Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.577Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.577Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.577Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 15:39:14","timestamp":"2024-03-10T07:39:14.578Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.901Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.903Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.903Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.903Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.904Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.904Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.904Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.905Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.905Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.905Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.906Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.906Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.906Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.907Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.907Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.907Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.907Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.907Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.907Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.907Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.909Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.909Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.909Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 15:40:06","timestamp":"2024-03-10T07:40:06.910Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.272Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.273Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.273Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.274Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.274Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.274Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.275Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.275Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.275Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.275Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.276Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.276Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.276Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.276Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.276Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.277Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.278Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.278Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.278Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.278Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.278Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.278Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.278Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.278Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.278Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.279Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.279Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.279Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 15:41:19","timestamp":"2024-03-10T07:41:19.280Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.312Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.314Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.314Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.314Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.315Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.315Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.315Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.315Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.316Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.316Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.316Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.316Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.317Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.317Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.317Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.317Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.318Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.318Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.318Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.318Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.318Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.319Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.319Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.319Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.319Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.319Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.319Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.319Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.319Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.319Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.319Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 15:41:31","timestamp":"2024-03-10T07:41:31.321Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.762Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.764Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.764Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.764Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.765Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.765Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.765Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.766Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.766Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.766Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.766Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.767Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.767Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.767Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.767Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.768Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.768Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.769Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.769Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.769Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.769Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.769Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.769Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.770Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.770Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.770Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.770Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.770Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.770Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.770Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.770Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 15:43:36","timestamp":"2024-03-10T07:43:36.772Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.724Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.726Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.726Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.727Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.727Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.728Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.728Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.728Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.729Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.729Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.729Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.730Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.730Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.730Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.730Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.731Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.731Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.731Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.731Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.731Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.732Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.732Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.732Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.732Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.732Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.732Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.732Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.732Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.732Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.733Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.733Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 15:44:51","timestamp":"2024-03-10T07:44:51.734Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.608Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.609Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.610Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.610Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.610Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.611Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.611Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.611Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.611Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.612Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.612Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.613Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.613Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.613Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.613Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.614Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.614Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.614Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.615Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.615Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.615Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.615Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.615Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.615Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.615Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.616Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.616Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.616Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.616Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.616Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.616Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 15:48:02","timestamp":"2024-03-10T07:48:02.617Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.248Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.251Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.251Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.251Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.251Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.252Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.252Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.252Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.253Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.253Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.253Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.253Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.253Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.253Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.254Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.254Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.254Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.254Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.256Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.256Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.256Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.256Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.256Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.257Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.257Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.257Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 16:01:50","timestamp":"2024-03-10T08:01:50.259Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.959Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.960Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.960Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.961Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.961Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.961Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.962Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.963Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.963Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.964Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.964Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.964Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.964Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.964Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.965Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.965Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.965Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.965Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.965Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.965Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.966Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.966Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.966Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.966Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.966Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.966Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.966Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.967Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.967Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.967Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.967Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 16:03:43","timestamp":"2024-03-10T08:03:43.971Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.310Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.312Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.312Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.312Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.312Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.313Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.313Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.316Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.317Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.318Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.319Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.320Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.320Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.320Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.321Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.321Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.322Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.323Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.323Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.324Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.324Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.325Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.325Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.325Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.332Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.332Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.332Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.332Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.332Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.332Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.332Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 16:05:32","timestamp":"2024-03-10T08:05:32.334Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.790Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.792Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testPermission, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.792Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/testRole, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.793Z"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.793Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.793Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/logout, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.794Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.794Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.794Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/all, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.794Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/getUserInfo, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.795Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user, DELETE} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.795Z"}
+{"context":"RoutesResolver","level":"info","message":"BlogController {/blog}:","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.795Z"}
+{"context":"RoutesResolver","level":"info","message":"TagController {/tag}:","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.795Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/listAll, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.795Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/find, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.796Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/list, POST} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.796Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/add, POST} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.797Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/update, PUT} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.797Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/tag/delete, DELETE} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.797Z"}
+{"context":"RoutesResolver","level":"info","message":"ClassController {/class}:","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.797Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.797Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/find, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.797Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/findByName, GET} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.797Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/list, POST} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.798Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/add, POST} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.798Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/update, PUT} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.798Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/delete, DELETE} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.798Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/class/batch/delete, DELETE} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.798Z"}
+{"context":"RoutesResolver","level":"info","message":"FileController {/file}:","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.798Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/file/image/upload, POST} route","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.798Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","time":"2024-03-10 16:46:22","timestamp":"2024-03-10T08:46:22.799Z"}

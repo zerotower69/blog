@@ -6,7 +6,6 @@ import {
 import { QiniuConfigService } from './qiniu.config.service';
 import { QINIU_CONFIG_SERVICE } from './qiniu.constants';
 import * as qiniu from 'qiniu';
-import { auth, rs } from 'qiniu';
 import { PutRespBody, QiniuZone } from './qiniu.options';
 
 @Injectable()
@@ -17,7 +16,7 @@ export class QiniuService {
   ) {}
 
   //getMac
-  getMac(macOptions?: auth.digest.MacOptions): auth.digest.Mac {
+  getMac(macOptions?: qiniu.auth.digest.MacOptions) {
     const options = this.configService.config;
     if (!Reflect.has(options, 'access_key')) {
       throw new InternalServerErrorException('access_key not exit');
@@ -31,8 +30,8 @@ export class QiniuService {
   }
   //getuploadToken
   getUploadToken(
-    policyOptions?: rs.PutPolicyOptions,
-    macOptions?: auth.digest.MacOptions,
+    policyOptions?: qiniu.rs.PutPolicyOptions,
+    macOptions?: qiniu.auth.digest.MacOptions,
   ) {
     const putPolicy = new qiniu.rs.PutPolicy({
       ...(policyOptions ?? {}),

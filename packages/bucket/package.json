@@ -1,0 +1,17 @@
+{
+  "name": "@common/bucket",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "Object storage(Bucket)",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "build:tsc": "tsc -p tsconfig.json"
+  },
+  "keywords": ["qiniu","oss","cos","minio"],
+  "author": "zerotower<zerotower@163.com>",
+  "dependencies": {
+  }
+}

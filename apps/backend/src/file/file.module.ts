@@ -1,15 +1,32 @@
-import { Module } from '@nestjs/common';
-import { DynamicModule } from '@nestjs/common/interfaces/modules/dynamic-module.interface';
+import { Module, Type, DynamicModule, ForwardReference } from '@nestjs/common';
+import {
+  QiniuModule,
+  QiniuService,
+  COSModule,
+  OSSModule,
+  MinioModule,
+} from '@common/bucket';
+import { SequelizeModule } from '@nestjs/sequelize';
 import { UploadFileOptions } from './file.options';
 import { FILE_MODULE_OPTIONS } from './file.constants';
 import { FileService } from './file.service';
-import { QiniuModule, QiniuService, QiniuOptions } from '../bucket';
 import { FileController } from './file.controller';
-import { SequelizeModule } from '@nestjs/sequelize';
 import { FileModel } from '../models/file/file.model';
+import { getBucketConfig } from '../config';
+
+const qiniuConfig = getBucketConfig('qiniu');
+const ossConfig = getBucketConfig('oss');
+const cosConfig = getBucketConfig('cos');
+const minioConfig = getBucketConfig('minio');
 
 @Module({
-  imports: [QiniuModule.register({}), SequelizeModule.forFeature([FileModel])],
+  imports: [
+    QiniuModule.register(qiniuConfig),
+    COSModule.register(cosConfig),
+    OSSModule.register(ossConfig),
+    MinioModule.register(minioConfig),
+    SequelizeModule.forFeature([FileModel]),
+  ],
   providers: [FileService],
   controllers: [FileController],
   exports: [],

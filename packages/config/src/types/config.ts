@@ -1,6 +1,5 @@
 import type { Dialect, PoolOptions } from 'sequelize';
 import { BucketConfig } from './bucket';
-export * from './bucket';
 //服务配置
 export type ServerConfig = {
   //主机地址,默认localhost
