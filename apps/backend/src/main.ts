@@ -5,11 +5,7 @@ import { AppModule } from './app.module';
 
 import { getConfig } from './config';
 import { WINSTON_LOGGER_TOKEN } from './winston/winston.module';
-import {
-  BadRequestException,
-  HttpStatus,
-  ValidationPipe,
-} from '@nestjs/common';
+import { BadRequestException, HttpStatus, ValidationPipe } from '@nestjs/common';
 import { LoginGuard } from './auth/login.guard';
 
 const config = getConfig();

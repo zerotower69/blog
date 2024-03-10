@@ -7,12 +7,13 @@
     "clear": "",
     "reinstall": "npm run apps/admin reinstall && npm run apps/backend reinstall && npm run apps/web reinstall:web",
     "bootstrap": "pnpm install -w",
-    "lint": "",
+    "lint": "pnpm run -C apps/backend lint && pnpm run -C apps/admin-web lint:eslint",
     "format": "",
     "start:dev": "",
     "start:prod": "",
     "start:docker:mac": "docker compose -f docker-compose.mac.yaml up -d",
-    "start:docker:win10": "docker compose -f docker-compose.win.yaml up -d"
+    "start:docker:win10": "docker compose -f docker-compose.win.yaml up -d",
+    "prepare": "husky install"
   },
   "keywords": [
     "blog",
@@ -44,12 +45,19 @@
     "sequelize": "^6.37.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
+    "@commitlint/types": "^19.0.3",
     "@types/node": "^20.3.1",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "cz-git": "^1.9.0",
+    "czg": "^1.9.0",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.0.0",
     "rollup": "^2.70.2",
     "ts-loader": "^9.4.3",
@@ -57,5 +65,14 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.3"
   },
-  "homepage": ""
+  "lint-staged": {
+    "package.json": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  }
 }

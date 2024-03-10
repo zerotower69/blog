@@ -4,10 +4,7 @@ export function getPageOffset(page = 1, limit = 10) {
 }
 
 //移除更新数据对象中的null或空的属性
-export function getUpdateData<T extends Record<string, any>>(
-  originData: T,
-  removeId = true,
-) {
+export function getUpdateData<T extends Record<string, any>>(originData: T, removeId = true) {
   const data = {
     ...originData,
   };

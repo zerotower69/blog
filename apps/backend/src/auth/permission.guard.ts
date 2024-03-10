@@ -1,10 +1,4 @@
-import {
-  CanActivate,
-  ExecutionContext,
-  Inject,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { CanActivate, ExecutionContext, Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { Observable } from 'rxjs';
 import { RoleService } from '../user/role.service';
@@ -31,20 +25,11 @@ export class PermissionGuard implements CanActivate {
     }
 
     //需要查的角色
-    let requiredRoles =
-      this.reflector.getAllAndOverride('require-role', [
-        context.getClass(),
-        context.getHandler(),
-      ]) ?? [];
-    requiredRoles = Array.isArray(requiredRoles)
-      ? requiredRoles
-      : [requiredRoles];
+    let requiredRoles = this.reflector.getAllAndOverride('require-role', [context.getClass(), context.getHandler()]) ?? [];
+    requiredRoles = Array.isArray(requiredRoles) ? requiredRoles : [requiredRoles];
 
     const requiredPermissions: string[] =
-      this.reflector.getAllAndOverride('require-permission', [
-        context.getClass(),
-        context.getHandler(),
-      ]) ?? [];
+      this.reflector.getAllAndOverride('require-permission', [context.getClass(), context.getHandler()]) ?? [];
 
     // console.log(requiredPermissions)
 
@@ -54,23 +39,16 @@ export class PermissionGuard implements CanActivate {
     }
 
     if (requiredRoles.length) {
-      const requestRoles = (request?.user?.roles ?? []).map(
-        (role) => role.code,
-      );
+      const requestRoles = (request?.user?.roles ?? []).map((role) => role.code);
       const hasRole = requestRoles.some((role) => requiredRoles.includes(role));
       return hasRole;
     }
 
-    const roles = await this.roleService.findRolesByIds(
-      request.user?.roles?.map((item) => item.id) ?? [],
-    );
-    const permissions: PermissionModel[] = roles.reduce(
-      (total: PermissionModel[], current) => {
-        total.push(...current.permissions);
-        return total;
-      },
-      [],
-    );
+    const roles = await this.roleService.findRolesByIds(request.user?.roles?.map((item) => item.id) ?? []);
+    const permissions: PermissionModel[] = roles.reduce((total: PermissionModel[], current) => {
+      total.push(...current.permissions);
+      return total;
+    }, []);
 
     for (let i = 0; i < requiredPermissions.length; i++) {
       const curPerm = requiredPermissions[i];

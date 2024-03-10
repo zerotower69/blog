@@ -1,11 +1,5 @@
 import { Module, Type, DynamicModule, ForwardReference } from '@nestjs/common';
-import {
-  QiniuModule,
-  QiniuService,
-  COSModule,
-  OSSModule,
-  MinioModule,
-} from '@common/bucket';
+import { QiniuModule, QiniuService, COSModule, OSSModule, MinioModule } from '@common/bucket';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { UploadFileOptions } from './file.options';
 import { FILE_MODULE_OPTIONS } from './file.constants';

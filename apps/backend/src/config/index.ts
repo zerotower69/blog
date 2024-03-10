@@ -2,15 +2,7 @@ import { env, cwd } from 'process';
 import * as fs from 'fs';
 import { parse } from 'yaml';
 import * as path from 'path';
-import type {
-  AppConfig,
-  BucketConfig,
-  BucketType,
-  COSConfig,
-  MinioConfig,
-  OSSConfig,
-  QiniuConfig,
-} from '../../types/config';
+import type { AppConfig, BucketConfig, BucketType, COSConfig, MinioConfig, OSSConfig, QiniuConfig } from '../../types/config';
 
 // 获取项目运行环境
 export const getEnv = (): string => {
@@ -46,9 +38,7 @@ type BucketTypeMap = {
   minio: MinioConfig;
 };
 
-export function getBucketConfig<T extends BucketType = 'qiniu'>(
-  type: T,
-): BucketTypeMap[T] {
+export function getBucketConfig<T extends BucketType = 'qiniu'>(type: T): BucketTypeMap[T] {
   const bConfig = (getConfig()?.['bucket'] ?? {}) as BucketConfig;
   return (bConfig[type] ?? {}) as BucketTypeMap[T];
 }

@@ -1,14 +1,4 @@
-import {
-  AllowNull,
-  AutoIncrement,
-  Column,
-  Comment,
-  DataType,
-  Model,
-  NotNull,
-  PrimaryKey,
-  Table,
-} from 'sequelize-typescript';
+import { AllowNull, AutoIncrement, Column, Comment, DataType, Model, NotNull, PrimaryKey, Table } from 'sequelize-typescript';
 
 //关于
 @Table({

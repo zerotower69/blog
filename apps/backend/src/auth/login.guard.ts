@@ -1,23 +1,17 @@
 import { JwtService } from '@nestjs/jwt';
-import {
-  CanActivate,
-  ExecutionContext,
-  Inject,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { CanActivate, ExecutionContext, Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { Request } from 'express';
 import { Observable } from 'rxjs';
 import { Reflector } from '@nestjs/core';
-import {RoleModel} from "../models";
+import { RoleModel } from '../models';
 
-declare module "express"{
-  interface Request{
-    user:{
-      username:string;
-      userId:number;
-      roles:RoleModel[]
-    }
+declare module 'express' {
+  interface Request {
+    user: {
+      username: string;
+      userId: number;
+      roles: RoleModel[];
+    };
   }
 }
 
@@ -29,14 +23,9 @@ export class LoginGuard implements CanActivate {
   @Inject(JwtService)
   private jwtService: JwtService;
 
-  canActivate(
-    context: ExecutionContext,
-  ): boolean | Promise<boolean> | Observable<boolean> {
+  canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     const request: Request = context.switchToHttp().getRequest();
-    const requireLogin = this.reflector.getAllAndOverride('require-login', [
-      context.getClass(),
-      context.getHandler(),
-    ]);
+    const requireLogin = this.reflector.getAllAndOverride('require-login', [context.getClass(), context.getHandler()]);
     if (!requireLogin) {
       return true;
     }
@@ -53,7 +42,7 @@ export class LoginGuard implements CanActivate {
 
     try {
       const data = this.jwtService.verify(token);
-      (request).user = data.user;
+      request.user = data.user;
       return true;
     } catch (e) {
       throw new UnauthorizedException('登录 token 失效，请重新登录');

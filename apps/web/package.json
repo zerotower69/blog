@@ -6,6 +6,7 @@
     "bootstrap:web": "pnpm install",
     "build:web": "nuxt build",
     "dev:web": "nuxt dev",
+    "lint": "eslint \"src/**/*.{vue,tsx,ts,jsx,js}\" --fix",
     "generate:web": "nuxt generate",
     "preview:web": "nuxt preview",
     "postinstall:web": "nuxt prepare",

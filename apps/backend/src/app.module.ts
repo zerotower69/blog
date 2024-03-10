@@ -51,9 +51,7 @@ const jwtConfig = config['jwt'];
 const redisConfig = config['redis'] ?? {};
 
 //自定义逻辑判断有些模块是否使用
-const defaultModule: Array<
-  Type<any> | DynamicModule | Promise<DynamicModule> | ForwardReference
-> = [
+const defaultModule: Array<Type<any> | DynamicModule | Promise<DynamicModule> | ForwardReference> = [
   ConfigModule.forRoot({
     ignoreEnvFile: false, // 忽视默认读取.env的文件配置
     isGlobal: true, // 全局注入

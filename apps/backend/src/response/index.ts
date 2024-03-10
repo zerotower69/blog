@@ -17,14 +17,7 @@ export class Res {
     return Res.Result(code, data, message);
   }
   //成功返回分页数据
-  static OKWithPage<D>(
-    list: D[],
-    limit: number,
-    page = 1,
-    total = 0,
-    code = 200,
-    message = 'ok',
-  ) {
+  static OKWithPage<D>(list: D[], limit: number, page = 1, total = 0, code = 200, message = 'ok') {
     if (!total && list.length) {
       total = list.length;
     }
@@ -45,32 +38,17 @@ export class Res {
     return Res.Result(200, data, message);
   }
   //错误返回
-  static Error<D>(
-    message: string = 'error',
-    code = 400,
-    data: D | null = null,
-  ) {
+  static Error<D>(message: string = 'error', code = 400, data: D | null = null) {
     return Res.Result(code, data, message);
   }
 
   //服务器错误
-  static ServerError<D>(
-    message: string = 'server error',
-    code = 500,
-    data: D | null = null,
-  ) {
+  static ServerError<D>(message: string = 'server error', code = 500, data: D | null = null) {
     return Res.Result(code, data, message);
   }
 
   //分页数据
-  static Page<D>(
-    list: D[],
-    limit: number,
-    page = 1,
-    total = 0,
-    code = 200,
-    message = 'ok',
-  ) {
+  static Page<D>(list: D[], limit: number, page = 1, total = 0, code = 200, message = 'ok') {
     if (!total && list.length) {
       total = list.length;
     }

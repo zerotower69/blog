@@ -1,8 +1,6 @@
 <template>
   <div class="md:flex">
-    <template>
-      <div>1</div>
-    </template>
+    <div>1</div>
   </div>
 </template>
 <script lang="ts" setup>

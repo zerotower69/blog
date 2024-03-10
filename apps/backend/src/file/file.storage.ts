@@ -13,12 +13,7 @@ export const diskStorage = multer.diskStorage({
     cb(null, path.join(process.cwd(), uploadPath));
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix =
-      Date.now() +
-      '-' +
-      Math.round(Math.random() * 1e9) +
-      '-' +
-      file.originalname;
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9) + '-' + file.originalname;
     cb(null, uniqueSuffix);
   },
 });

@@ -1,14 +1,4 @@
-import {
-  AutoIncrement,
-  BelongsTo,
-  Column,
-  Comment,
-  DataType,
-  ForeignKey,
-  Model,
-  PrimaryKey,
-  Table,
-} from 'sequelize-typescript';
+import { AutoIncrement, BelongsTo, Column, Comment, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript';
 import { RoleModel } from './role.model';
 import { UserModel } from './user.model';
 

@@ -1,14 +1,4 @@
-import {
-  AllowNull,
-  Column,
-  Comment,
-  DataType,
-  Default,
-  Model,
-  PrimaryKey,
-  Table,
-  Unique,
-} from 'sequelize-typescript';
+import { AllowNull, Column, Comment, DataType, Default, Model, PrimaryKey, Table, Unique } from 'sequelize-typescript';
 
 //留言
 @Table({

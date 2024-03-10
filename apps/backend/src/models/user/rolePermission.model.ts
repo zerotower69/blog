@@ -1,13 +1,4 @@
-import {
-  AutoIncrement,
-  Column,
-  Comment,
-  DataType,
-  ForeignKey,
-  Model,
-  PrimaryKey,
-  Table,
-} from 'sequelize-typescript';
+import { AutoIncrement, Column, Comment, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript';
 import { RoleModel } from './role.model';
 import { PermissionModel } from './permission.model';
 

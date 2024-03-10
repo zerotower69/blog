@@ -1,13 +1,4 @@
-import {
-  AllowNull,
-  Column,
-  Comment,
-  DataType,
-  Default,
-  Model,
-  PrimaryKey,
-  Table,
-} from 'sequelize-typescript';
+import { AllowNull, Column, Comment, DataType, Default, Model, PrimaryKey, Table } from 'sequelize-typescript';
 
 //图片
 @Table({
