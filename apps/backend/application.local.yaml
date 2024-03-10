@@ -1,0 +1,6 @@
+#本地配置
+bucket:
+  enable: true
+  type: "qiniu"
+  qiniu:
+    bucket:

@@ -1,4 +1,5 @@
 import type { Dialect, PoolOptions } from 'sequelize';
+export * from './bucket';
 //服务配置
 export type ServerConfig = {
   //主机地址,默认localhost
@@ -7,6 +8,8 @@ export type ServerConfig = {
   port: number | string;
   //前缀
   prefix: string;
+  //文件
+  uploadPath: string;
 };
 
 //JWTModule相关配置
@@ -94,11 +97,11 @@ export type SwaggerConfig = {
 //应用配置
 export type AppConfig = {
   //服务配置
-  server: ServerConfig;
+  server?: ServerConfig;
   //jwt module
-  jwt: JWTConfig;
+  jwt?: JWTConfig;
   //mysql 配置
-  mysql: Partial<MySQLConfig>;
+  mysql?: Partial<MySQLConfig>;
   redis?: Partial<RedisConfig>;
   logger?: Partial<LoggerConfig>;
   swagger?: Partial<SwaggerConfig>;

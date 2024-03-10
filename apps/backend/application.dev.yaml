@@ -2,6 +2,7 @@
 server:
   host: "localhost"
   port: 3000
+  uploadPath: 'uploadFile'
 # JWTModule相关配置
 jwt:
   secret: "zero"

@@ -38,9 +38,10 @@ import { RedisModule } from './redis/redis.module';
 import { Type } from '@nestjs/common/interfaces/type.interface';
 import { DynamicModule } from '@nestjs/common/interfaces/modules/dynamic-module.interface';
 import { ForwardReference } from '@nestjs/common/interfaces/modules/forward-reference.interface';
-import { LoginGuard } from './auth/login.guard';
-import { PermissionGuard } from './auth/permission.guard';
+import { LoginGuard, PermissionGuard } from './auth';
 import { BlogModule } from './blog/blog.module';
+import { FileModule } from './file/file.module';
+import { FileModel } from './models/file/file.model';
 
 const config = getConfig();
 
@@ -111,12 +112,14 @@ const defaultModule: Array<
       ClassModel,
       ArticleClassModel,
       ArticleTagModel,
+      FileModel,
     ],
     logging: false,
     ...sqlConfig,
   }),
   UserModule,
   BlogModule,
+  FileModule,
 ];
 if (redisConfig?.enable ?? true) {
   let redisOptions: RedisOptions = {

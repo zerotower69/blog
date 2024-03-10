@@ -4,7 +4,7 @@ export * from './user/role.model';
 export * from './user/permission.model';
 export * from './user/rolePermission.model';
 export * from './about.model';
-export * from './image.model';
+export * from './file/image.model';
 export * from './links.model';
 export * from './message.model';
 export * from './works.model';
