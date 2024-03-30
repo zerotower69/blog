@@ -64,6 +64,10 @@ export class ArticleModel extends Model {
   @Column(DataType.STRING(300))
   origin_link: string;
 
+  @Comment('文章是否删除（软删除）')
+  @Column(DataType.BOOLEAN)
+  is_delete: boolean;
+
   @Comment('喜欢数')
   @Default(0)
   @Column(DataType.INTEGER)
@@ -73,4 +77,8 @@ export class ArticleModel extends Model {
   @Default(0)
   @Column(DataType.INTEGER)
   read: number;
+
+  @Comment('文章封面')
+  @Column(DataType.STRING(500))
+  banner: string;
 }

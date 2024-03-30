@@ -1,4 +1,5 @@
 import * as crypto from 'crypto';
+import { Model } from 'sequelize-typescript';
 export * from './file';
 export * from './data';
 

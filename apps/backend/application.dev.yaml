@@ -17,6 +17,7 @@ mysql:
   dialect: "mysql"
   synchronize: true
   autoLoadModels: true
+  timezone: "+8:00"
   # 打印数据库日志（sequelize）
   logging: true
   sync:
