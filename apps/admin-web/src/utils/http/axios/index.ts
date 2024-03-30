@@ -169,7 +169,6 @@ const transform: AxiosTransform = {
     const msg: string = response?.data?.error?.message ?? ''
     const err: string = error?.toString?.() ?? ''
     let errMessage = ''
-
     try {
       if (code === 'ECONNABORTED' && message.indexOf('timeout') !== -1) {
         errMessage = t('sys.api.apiTimeoutMessage')

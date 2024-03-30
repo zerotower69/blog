@@ -10,6 +10,7 @@ import { REDIS_TOKEN } from '../redis/redis.module';
 import Redis from 'ioredis';
 import { ForgetDto } from './dto/forget.dto';
 import { RoleModel, UserRoleModel, UserModel } from '../models';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class UserService {
@@ -18,6 +19,7 @@ export class UserService {
     private userModel: typeof UserModel,
     @InjectModel(RoleModel)
     private roleModel: typeof RoleModel,
+    private jwtService: JwtService,
   ) {}
 
   @Inject(WINSTON_LOGGER_TOKEN)
@@ -99,10 +101,21 @@ export class UserService {
 
   //删除用户
   async deleteOne(userId: number) {
-    const foundUser = await this.userModel.findByPk(userId);
+    const foundUser = await this.userModel.findByPk(userId, {
+      include: [
+        {
+          model: RoleModel,
+          attributes: ['id', 'code'],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
+    });
     if (foundUser) {
-      if (foundUser.username === 'admin') {
-        return Res.Error('管理员不能删除');
+      const roleCodes = foundUser.roles.map((role) => role.code);
+      if (roleCodes.includes('super')) {
+        return Res.Error('管理员不可以删除');
       } else {
         try {
           await this.userModel.destroy({
@@ -110,7 +123,7 @@ export class UserService {
               id: userId,
             },
           });
-          return Res.Result(204, null, 'ok');
+          return Res.OK('删除用户成功');
         } catch (e) {
           return Res.Error(e.message);
         }
@@ -159,5 +172,35 @@ export class UserService {
       limit: limit,
     });
     return Res.Page(rows, page, count);
+  }
+
+  //获取token
+  getToken(user: UserModel) {
+    const payload = {
+      user: {
+        id: user.id,
+        username: user.username,
+        roles: user.roles.map((role) => ({
+          id: role.id,
+          code: role.code,
+          name: role.name,
+        })),
+      },
+    };
+    const access_token = this.jwtService.sign(payload, {
+      // expiresIn: '30m',
+    });
+    const refresh_token = this.jwtService.sign(
+      {
+        userId: user.id,
+      },
+      {
+        expiresIn: '7d',
+      },
+    );
+    return {
+      access_token,
+      refresh_token,
+    };
   }
 }

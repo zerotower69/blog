@@ -1,14 +1,15 @@
-import { Body, Controller, Delete, Get, Inject, Post, Query, Res, UnauthorizedException, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Inject, Post, Query, Req, Res, UnauthorizedException, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
-import { JwtService } from '@nestjs/jwt';
+import { JwtService, TokenExpiredError } from '@nestjs/jwt';
 import { Response } from 'express';
 import { Res as ResBody } from '../response';
 import { Auth } from '../auth';
 import { WINSTON_LOGGER_TOKEN } from '../winston/winston.module';
 import { MyLogger } from '../winston/MyLogger';
 import { ApiTags } from '@nestjs/swagger';
+import { Request } from 'express';
 
 ApiTags('用户模块');
 @Controller('user')
@@ -25,35 +26,13 @@ export class UserController {
   async login(@Body() user: LoginDto) {
     const foundUser = await this.userService.login(user);
     if (foundUser) {
-      const payload = {
-        user: {
-          id: foundUser.id,
-          username: foundUser.username,
-          roles: foundUser.roles.map((role) => ({
-            id: role.id,
-            code: role.code,
-            name: role.name,
-          })),
-        },
-      };
-
-      //令牌token
-      const access_token = await this.jwtService.signAsync(payload, {
-        expiresIn: '30m',
-      });
-      //刷新token
-      const refresh_token = await this.jwtService.signAsync(
+      const tokens = this.userService.getToken(foundUser);
+      return ResBody.OKWithData(
         {
-          userId: foundUser.id,
+          ...tokens,
         },
-        {
-          expiresIn: '7d',
-        },
+        '登录成功',
       );
-      return ResBody.OK('登录成功', 200, {
-        access_token,
-        refresh_token,
-      });
     } else {
       return ResBody.Error('登录失败');
     }
@@ -70,31 +49,9 @@ export class UserController {
     try {
       const data = this.jwtService.verify(refreshToken);
       const user = await this.userService.getUserInfo(data.userId);
-      const payload = {
-        user: {
-          userId: user.id,
-          username: user.username,
-          roles: user.roles.map((role) => ({
-            id: role.id,
-            code: role.code,
-            name: role.name,
-          })),
-        },
-      };
-      const access_token = this.jwtService.sign(payload, {
-        expiresIn: '30m',
-      });
-      const refresh_token = this.jwtService.sign(
-        {
-          userId: user.id,
-        },
-        {
-          expiresIn: '7d',
-        },
-      );
+      const tokens = this.userService.getToken(user);
       return ResBody.OKWithData({
-        access_token,
-        refresh_token,
+        ...tokens,
       });
     } catch (e) {
       throw new UnauthorizedException('登录超时，请重新登录');
@@ -113,8 +70,10 @@ export class UserController {
   }
 
   @Get('getUserInfo')
-  async getDetail(@Query('token') token: string) {
+  async getDetail(@Req() req: Request) {
     try {
+      console.log('获取用户信息');
+      const token = req.header('authorization').split(' ').pop();
       const data = this.jwtService.verify(token);
       const user = await this.userService.getUserInfo(data.user.id);
       if (user) {
@@ -123,7 +82,12 @@ export class UserController {
         return ResBody.Error();
       }
     } catch (e) {
-      return ResBody.ServerError(e.message);
+      console.log(e);
+      if (e instanceof TokenExpiredError) {
+        throw new UnauthorizedException(new Error('登录已过期'));
+      } else {
+        return ResBody.ServerError(e.message);
+      }
     }
   }
 

@@ -1,5 +1,6 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException } from '@nestjs/common';
 import { Response } from 'express';
+import { ResponseType } from '../response';
 
 @Catch(HttpException)
 export class HelloFilter implements ExceptionFilter {
@@ -15,7 +16,7 @@ export class HelloFilter implements ExceptionFilter {
     response.status(statusCode).json({
       code: statusCode,
       message: res?.message?.join ? res?.message?.join(',') : exception.message,
-      error: 'Bad Request',
+      type: ResponseType.ERROR,
       data: null,
     });
   }
