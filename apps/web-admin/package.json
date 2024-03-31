@@ -29,9 +29,9 @@
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write .",
     "lint:stylelint": "stylelint \"**/*.{vue,css,less,scss}\" --fix --cache --cache-location node_modules/.cache/stylelint/",
-    "preview": "npm run build && vite preview",
-    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
-    "serve": "npm run dev",
+    "preview": "pnpm run build && vite preview",
+    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && pnpm run bootstrap",
+    "serve": "pnpm run dev",
     "test:gzip": "npx http-server dist --cors --gzip -c-1",
     "type:check": "vue-tsc --noEmit --skipLibCheck"
   },

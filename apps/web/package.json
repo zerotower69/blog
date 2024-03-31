@@ -4,13 +4,14 @@
   "type": "module",
   "scripts": {
     "bootstrap:web": "pnpm install",
+    "preinstall": "npx only-allow pnpm",
     "build:web": "nuxt build",
     "dev:web": "nuxt dev",
-    "lint": "eslint \"src/**/*.{vue,tsx,ts,jsx,js}\" --fix",
+    "lint:web": "eslint \"src/**/*.{vue,tsx,ts,jsx,js}\" --fix",
     "generate:web": "nuxt generate",
     "preview:web": "nuxt preview",
     "postinstall:web": "nuxt prepare",
-    "reinstall:web": "rimraf pnpm-lock.yaml && rimraf npm.lock.json && npm run bootstrap"
+    "reinstall:web": "rimraf pnpm-lock.yaml && rimraf npm.lock.json && pnpm run bootstrap:web"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",

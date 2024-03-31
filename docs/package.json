@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "The document of blog.",
   "scripts": {
+    "bootstrap": "pnpm install",
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "preinstall": "npx only-allow pnpm",
+    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && pnpm run bootstrap"
   },
   "keywords": [
     "vitepress",
