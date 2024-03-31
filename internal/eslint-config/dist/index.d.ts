@@ -1,0 +1,2 @@
+export * from "/Users/zerotower/Documents/blog/admin/vue-vben-admin/internal/eslint-config/src/index";
+export { default } from "/Users/zerotower/Documents/blog/admin/vue-vben-admin/internal/eslint-config/src/index";

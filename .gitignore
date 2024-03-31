@@ -1,30 +1,33 @@
+#IDE files
+**/.vscode
+.DS_Store
+.fleet
+.idea
 # packages
 node_modules
 apps/*/node_modules
+packages/*/node_modules
+internal/*/node_modules
 
-# backend(nestjs) output
-/apps/backend/dist/
 
+# apps ingore files
+### admin ####
+apps/web-admin/dist
+### admin ####
+### web ####
 # Nuxt dev/build outputs
 apps/web/.output
 apps/web/.data
 apps/web/.nuxt
 apps/web/.nitro
 apps/web/.cache
-apps/*/dist
-
-# admin output
-/apps/admin-web/dist/
-
-# Logs
-apps/*logs
-apps/*/*.log
-
-# Misc
-.DS_Store
-.fleet
-.idea
-
+apps/web/dist
+apps/web/.env.production
+apps/web/.env.local
+### web ####
+### backend ####
+# output files
+/apps/backend/dist
 # backend yaml config file
 apps/backend/application.prod.yaml
 # local file
@@ -32,15 +35,15 @@ apps/backend/application.local.yaml
 # uload files
 apps/backend/upload
 apps/backend/uploadFile
+### backend ####
+apps/*logs
+apps/*/*.log
 
 #docs
 /docs/.vitepress/cache/
-
-/apps/admin-web/.vscode/
-
-# web
-/apps/web/.env.production
-/apps/web/.env.local
+docs/dist
 
 # packages
 packages/**/dist
+# internal
+internal/**/dist
