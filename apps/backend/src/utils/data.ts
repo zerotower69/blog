@@ -1,6 +1,6 @@
 //分页offset
-export function getPageOffset(page = 1, limit = 10) {
-  return (page - 1) * limit;
+export function getPageOffset(page = 1, pageSize = 10) {
+  return (page - 1) * pageSize;
 }
 
 //移除更新数据对象中的null或空的属性

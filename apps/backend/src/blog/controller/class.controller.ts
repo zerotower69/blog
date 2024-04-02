@@ -5,6 +5,7 @@ import { UpdateDto } from '../dto/class/update.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Role } from '../../auth';
 import { PageDto } from '../dto/page';
+import { ListDto } from '../dto/class/list.dto';
 
 @ApiTags('分类模块')
 @Controller('class')
@@ -41,8 +42,8 @@ export class ClassController {
   @ApiOperation({
     summary: '分页查询分类',
   })
-  @Post('list')
-  listByPage(@Body() data: PageDto) {
+  @Post('getList')
+  listByPage(@Body() data: ListDto) {
     return this.classService.listByPage(data);
   }
 
@@ -62,7 +63,7 @@ export class ClassController {
     summary: '修改分类',
   })
   @Role('admin')
-  @Put('update')
+  @Post('update')
   updateClass(@Body() data: UpdateDto) {
     return this.classService.update(data.id, data);
   }
@@ -72,9 +73,9 @@ export class ClassController {
     summary: '删除分类',
   })
   @Role('admin')
-  @Delete('delete')
+  @Get('delete')
   deleteClass(@Query('id') id: number) {
-    return this.classService.delete(id);
+    return this.classService.deleteData(id.toString());
   }
 
   //批量删除分类
@@ -82,8 +83,8 @@ export class ClassController {
     summary: '批量删除分类',
   })
   @Role('admin')
-  @Delete('batch/delete')
+  @Get('batch/delete')
   batchDeleteClass(@Query('ids') ids: string) {
-    return this.classService.batchDelete(ids);
+    return this.classService.deleteData(ids);
   }
 }

@@ -3,5 +3,7 @@ module.exports = {
   extends: ['@vben'],
   rules: {
     'no-undef': 'off',
+    '@typescript-eslint/no-unused-vars':'off',
+    'no-unused-vars':'off'
   },
 };

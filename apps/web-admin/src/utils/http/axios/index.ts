@@ -245,6 +245,9 @@ const transform: AxiosTransform = {
           pendingTask.forEach((task) => {
             //对所有存储的任务重新执行
             const retryRequest = new AxiosRetry();
+            if (!task?.error?.config?.headers) {
+              task.error.config.headers = {};
+            }
             const taskHeaders = task.error?.config?.headers as AxiosHeaders;
             taskHeaders['Authorization'] = 'Bearer ' + access_token;
             retryRequest.retry(task.axiosInstance, task.error).then(
@@ -256,6 +259,7 @@ const transform: AxiosTransform = {
               },
             );
           });
+          pendingTask.length = 0;
         })
         .finally(() => {
           isRefreshing = false;

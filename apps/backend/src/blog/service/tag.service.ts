@@ -1,14 +1,18 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { TagModel } from '../../models';
+import { ArticleTagModel, TagModel } from '../../models';
 import { Res } from '../../response';
 import { getPageOffset } from '../../utils';
+import { Op } from 'sequelize';
+import { ListDto } from '../dto/tag/list.dto';
 
 @Injectable()
 export class TagService {
   constructor(
     @InjectModel(TagModel)
     private tagModel: typeof TagModel,
+    @InjectModel(ArticleTagModel)
+    private articleTagModel: typeof ArticleTagModel,
   ) {}
 
   //新增标签
@@ -69,14 +73,23 @@ export class TagService {
   }
 
   //分页查询
-  async listByPage(limit = 10, page = 1) {
+  async listByPage(data: ListDto) {
     try {
-      const offset = getPageOffset(page, limit);
-      const data = await this.tagModel.findAndCountAll({
-        limit: limit,
+      const offset = getPageOffset(data.page, data.pageSize);
+      let whereOptions = {};
+      if (data.name) {
+        whereOptions = {
+          name: {
+            [Op.like]: `%${data?.name ?? ''}%`,
+          },
+        };
+      }
+      const { rows, count } = await this.tagModel.findAndCountAll({
+        limit: data.pageSize,
         offset: offset,
+        where: whereOptions,
       });
-      return Res.OKWithPage(data.rows, limit, page, data.count);
+      return Res.OKWithPage(rows, data.pageSize, data.page, count);
     } catch (e) {
       return Res.Error(e.message);
     }
@@ -117,6 +130,15 @@ export class TagService {
   //删除一条
   async delete(id: number) {
     try {
+      const tagRecord = await this.articleTagModel.findOne({
+        rejectOnEmpty: undefined,
+        where: {
+          tag_id: id,
+        },
+      });
+      if (tagRecord) {
+        return Res.Error('标签已被文章引用，无法删除');
+      }
       const data = await this.tagModel.destroy({
         where: {
           id: id,
@@ -132,6 +154,18 @@ export class TagService {
   async batchDelete(ids: string) {
     try {
       const idList = ids.split(',').map((id) => parseInt(id));
+      //寻找记录
+      const tagRecord = await this.articleTagModel.findOne({
+        rejectOnEmpty: undefined,
+        where: {
+          tag_id: {
+            [Op.in]: idList,
+          },
+        },
+      });
+      if (tagRecord) {
+        return Res.Error('标签已被文章引用，无法删除');
+      }
       const data = await this.tagModel.destroy({
         where: {
           id: idList,

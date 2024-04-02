@@ -18,13 +18,13 @@ export class Res {
     return Res.Result(code, data, message, ResponseType.SUCCESS);
   }
   //成功返回分页数据
-  static OKWithPage<D>(list: D[], limit: number, page = 1, total = 0, code = 200, message = 'ok') {
-    if (!total && list.length) {
-      total = list.length;
+  static OKWithPage<D>(items: D[], pageSize: number, page = 1, total = 0, code = 200, message = 'ok') {
+    if (!total && items.length) {
+      total = items.length;
     }
     const data = {
-      list,
-      limit,
+      items,
+      pageSize,
       total,
       page,
     };
