@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "bootstrap:backend": "pnpm install",
-    "preinstall": "npm only-allow pnpm",
+    "preinstall": "npx only-allow pnpm",
     "build": "nest build",
     "build:docker>=19.03": "nest build && docker buildx b -t nest-template . --label latest",
     "build:docker": "nest build && docker build -t nest-template:latest .",

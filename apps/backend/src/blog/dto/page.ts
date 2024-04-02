@@ -10,10 +10,10 @@ export class PageDto {
   page: number;
 
   @IsNotEmpty({
-    message: '分页数limit不能为空',
+    message: '分页数pageSize不能为空',
   })
   @IsInt({
     message: '分页数必须是整数',
   })
-  limit: number;
+  pageSize: number;
 }

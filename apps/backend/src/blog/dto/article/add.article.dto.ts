@@ -1,4 +1,4 @@
-import { IsEnum, IsNotEmpty, IsString, Length } from 'class-validator';
+import { Allow, IsEnum, IsNotEmpty, IsString, Length } from 'class-validator';
 
 //新增文章实体
 export class AddArticleDto {
@@ -40,4 +40,9 @@ export class AddArticleDto {
     message: '文章分类不能为空',
   })
   classId?: number[];
+  @Allow()
+  //原文链接
+  origin_link?: string;
+  @Allow()
+  banner?: string;
 }

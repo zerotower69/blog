@@ -32,10 +32,9 @@ export class ModifyArticleDto {
   //文章摘要
   @Allow()
   abstract: string;
-
   //标签id
   @Allow()
-  tagsId: number[];
+  tagId: number[];
   //分类id
   @Allow()
   classId: number[];
@@ -45,4 +44,8 @@ export class ModifyArticleDto {
   banner: string;
   @Allow()
   is_delete: boolean;
+  @Allow()
+  like?: number;
+  @Allow()
+  read?: number;
 }

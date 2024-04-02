@@ -7,7 +7,7 @@ import { ArticlePageDto } from '../dto/article/article.page.dto';
 import { Res } from '../../response';
 import { Op, Optional, WhereOptions } from 'sequelize';
 import { Attributes, FindAndCountOptions } from 'sequelize/types/model';
-import { getPageOffset } from '../../utils';
+import { deleteKey, getPageOffset } from '../../utils';
 import { PageDto } from '../dto/page';
 import { isNumber, isString } from '../../utils/is';
 import dayjs from 'dayjs';
@@ -70,7 +70,8 @@ export class ArticleService {
       }
       //提交事务
       await transaction.commit();
-      return Res.OK();
+      // deleteKey(article,'content');
+      return Res.OKWithData(article);
     } catch (e) {
       return Res.ServerError(e.message || e);
     }
@@ -100,7 +101,23 @@ export class ArticleService {
         );
         count = res[0];
       } else {
-        count = await this.articleModel.destroy(options);
+        const transaction = await this.articleModel.sequelize.transaction();
+        count = await this.articleModel.destroy({
+          ...options,
+          transaction,
+        });
+        //同时删除文章关联的标签和分类记录
+        const relOptions = {
+          where: {
+            article_id: {
+              [Op.in]: ids,
+            },
+          },
+          transaction,
+        };
+        await this.articleClassModel.destroy(relOptions);
+        await this.articleTagModel.destroy(relOptions);
+        await transaction.commit();
       }
       return Res.OK('ok', 200, count);
     } catch (e) {
@@ -116,7 +133,7 @@ export class ArticleService {
   async modifyArticle(id: string, data: ModifyArticleDto) {
     try {
       const articleId = id;
-      if (!Array.isArray(data.tagsId) || data.tagsId.length === 0) {
+      if (!Array.isArray(data.tagId) || data.tagId.length === 0) {
         throw new Error('标签名不能为空');
       }
       const transaction = await this.articleModel.sequelize.transaction();
@@ -150,14 +167,14 @@ export class ArticleService {
           );
         }
       }
-      if (Array.isArray(data.tagsId)) {
+      if (Array.isArray(data.tagId)) {
         await this.articleTagModel.destroy({
           where: {
             article_id: articleId,
           },
           transaction,
         });
-        for (const id of data.tagsId) {
+        for (const id of data.tagId) {
           await this.articleTagModel.create(
             {
               article_id: articleId,
@@ -177,14 +194,15 @@ export class ArticleService {
 
   /**
    * 分页查询文章
-   * @param data 分页数据
-   * @param options 其他过滤条件
+   * @param page
+   * @param pageSize
+   * @param data 分页数据和过滤条件
    */
-  async listArticleByPage(data: PageDto, options: Partial<ArticlePageDto> = {}) {
+  async listArticleByPage(page = 1, pageSize = 10, data: Partial<ArticlePageDto>) {
     try {
-      const offset = getPageOffset(data.page, data.limit);
+      const offset = getPageOffset(page, pageSize);
       const searchOptions: Omit<FindAndCountOptions<Attributes<ArticleModel>>, 'group'> = {
-        limit: data.limit,
+        limit: pageSize,
         offset,
         attributes: {
           exclude: ['content'],
@@ -192,25 +210,25 @@ export class ArticleService {
       };
       let whereOptions = {};
       //创建时间的范围
-      if (isString(options.startTime) && isString(options.endTime)) {
+      if (isString(data.startTime) && isString(data.endTime)) {
         whereOptions = {
           ...whereOptions,
           createdAt: {
-            [Op.gte]: dayjs(options.startTime).toDate(),
-            [Op.lte]: dayjs(options.endTime).toDate(),
+            [Op.gte]: dayjs(data.startTime).toDate(),
+            [Op.lte]: dayjs(data.endTime).toDate(),
           },
         };
       }
-      if (isString(options.title)) {
+      if (isString(data.title)) {
         //模糊匹配文章标题
         whereOptions = {
           ...whereOptions,
           title: {
-            [Op.like]: `%${options.title}%`,
+            [Op.like]: `%${data.title}%`,
           },
         };
       }
-      if (!options.showDelete) {
+      if (!data.showDelete) {
         //只请求没有被软删除的文章
         searchOptions.where = {
           ...whereOptions,
@@ -221,41 +239,99 @@ export class ArticleService {
           ],
         };
       }
-      let tagWhereOptions = {};
-      if (Array.isArray(options.tagsId)) {
-        tagWhereOptions = {
-          id: {
-            [Op.in]: options.tagsId,
-          },
-        };
-      }
+      //TODO:连表查询时，统计数目出现bug 2--3
+      const tagWhereOptions = {};
+      // if (Array.isArray(data.tagsId)) {
+      //   tagWhereOptions = {
+      //     id: {
+      //       [Op.in]: data.tagsId,
+      //     },
+      //   };
+      // }
       //tag标签id
-      searchOptions.include = [
-        {
-          model: TagModel,
-          attributes: ['id', 'name'],
-          where: tagWhereOptions,
-          through: { attributes: [] },
-        },
-      ];
+      // searchOptions.include = [
+      //   {
+      //     model: TagModel,
+      //     attributes: ['id', 'name'],
+      //     where: tagWhereOptions,
+      //     through: { attributes: [] },
+      //   },
+      // ];
       //是否按创建时间范围排序
-      searchOptions.order = [['createdAt', options.desc ? 'DESC' : 'ASC']];
+      searchOptions.order = [['createdAt', data.desc ? 'DESC' : 'ASC']];
       //TODO:加上按标签查，按分类查
       const { rows, count } = await this.articleModel.findAndCountAll(searchOptions);
-      return Res.Page(rows, data.limit, data.page, count);
+      // console.log(rows, count);
+      return Res.OKWithPage(rows, pageSize, page, count);
     } catch (e) {
       return Res.ServerError(e.message || e);
     }
   }
 
   /**
-   * 由文章Id获得文章详情
+   * 由文章Id获得文章详情(web端查看详情)
    * @param id 文章id
    */
   async getArticleDetails(id: string) {
     try {
-      const res = await this.articleModel.findByPk(id);
+      const res = await this.articleModel.findByPk(id, {
+        include: [
+          {
+            model: TagModel,
+            attributes: ['id', 'name'],
+            through: {
+              attributes: [],
+            },
+          },
+          {
+            model: ClassModel,
+            attributes: ['id', 'name'],
+            through: {
+              attributes: [],
+            },
+          },
+        ],
+      });
       return Res.OKWithData(res);
+    } catch (e) {
+      return Res.ServerError(e.message || e);
+    }
+  }
+
+  /**
+   * 由文章Id获得文章详情(admin端查看详情)
+   * @param id 文章id
+   */
+  async adminGetArticleDetails(id: string) {
+    try {
+      const article = await this.articleModel.findByPk(id, {
+        include: [
+          {
+            model: TagModel,
+            attributes: ['id'],
+            through: {
+              attributes: [],
+            },
+          },
+          {
+            model: ClassModel,
+            attributes: ['id'],
+            through: {
+              attributes: [],
+            },
+          },
+        ],
+        attributes: {
+          exclude: ['createdAt', 'updatedAt', 'like', 'read'],
+        },
+      });
+      const data: Record<string, any> = {
+        ...article.dataValues,
+      };
+      data.tagId = data.tags.map((item) => item.id);
+      data.classId = data.classes.map((item) => item.id);
+      deleteKey(data, 'tags', 'classes');
+      return Res.OKWithData(data);
     } catch (e) {
       return Res.ServerError(e.message || e);
     }

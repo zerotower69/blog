@@ -26,7 +26,7 @@ export class ArticleController {
     description: '给定id,删除一篇文章',
   })
   @Role('admin')
-  @Delete('delete')
+  @Get('delete')
   deleteArticle(@Query('id') id: string, @Query('soft_delete') softDelete: boolean) {
     return this.articleService.deleteArticle([id], softDelete);
   }
@@ -36,7 +36,7 @@ export class ArticleController {
   })
   @Role('admin')
   //批量删除文章
-  @Delete('/batch/Delete')
+  @Get('/batch/Delete')
   batchDeleteArticle(@Query('ids') ids: string, @Query('soft_delete') softDelete: boolean) {
     const idList = ids.split(',');
     return this.articleService.deleteArticle(idList, softDelete);
@@ -46,7 +46,7 @@ export class ArticleController {
     summary: '更新文章',
   })
   @Role('admin')
-  @Put('update')
+  @Post('update')
   updateArticle(@Body() data: ModifyArticleDto) {
     const id = data.id;
     Reflect.deleteProperty(data, 'id');
@@ -59,15 +59,23 @@ export class ArticleController {
   })
   //按分页查询文章
   @Post('getList')
-  listArticle(@Body('page') data: PageDto, @Body('filter') filterOptions: ArticlePageDto) {
-    return this.articleService.listArticleByPage(data, filterOptions);
+  listArticle(@Body('page') page: number, @Body('pageSize') pageSize: number, @Body('filter') data: ArticlePageDto) {
+    return this.articleService.listArticleByPage(page, pageSize, data);
   }
 
   @ApiOperation({
-    summary: '根据文章Id获取文章详情',
+    summary: 'web端根据文章Id获取文章详情',
   })
   @Get('details')
   getArticleDetails(@Query('id') id: string) {
     return this.articleService.getArticleDetails(id);
+  }
+
+  @ApiOperation({
+    summary: '管理端根据文章Id获取文章详情',
+  })
+  @Get('/admin/details')
+  adminGetArticleDetails(@Query('id') id: string) {
+    return this.articleService.adminGetArticleDetails(id);
   }
 }

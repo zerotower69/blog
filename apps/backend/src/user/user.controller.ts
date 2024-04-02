@@ -3,7 +3,6 @@ import { UserService } from './user.service';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { JwtService, TokenExpiredError } from '@nestjs/jwt';
-import { Response } from 'express';
 import { Res as ResBody } from '../response';
 import { Auth } from '../auth';
 import { WINSTON_LOGGER_TOKEN } from '../winston/winston.module';
@@ -72,7 +71,6 @@ export class UserController {
   @Get('getUserInfo')
   async getDetail(@Req() req: Request) {
     try {
-      console.log('获取用户信息');
       const token = req.header('authorization').split(' ').pop();
       const data = this.jwtService.verify(token);
       const user = await this.userService.getUserInfo(data.user.id);
@@ -82,7 +80,6 @@ export class UserController {
         return ResBody.Error();
       }
     } catch (e) {
-      console.log(e);
       if (e instanceof TokenExpiredError) {
         throw new UnauthorizedException(new Error('登录已过期'));
       } else {

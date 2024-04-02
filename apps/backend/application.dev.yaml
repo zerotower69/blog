@@ -6,7 +6,7 @@ server:
 # JWTModule相关配置
 jwt:
   secret: "zero"
-  expireIn: '35s' #表示过期时间1min
+  expireIn: '30m' #表示过期时间30min
 # sequelize相关
 mysql:
   host: 'localhost'
@@ -18,7 +18,7 @@ mysql:
   synchronize: true
   autoLoadModels: true
   # 打印数据库日志（sequelize）
-  logging: false
+  logging: true
   sync:
     alter: true
   # 连接池配置

@@ -5,6 +5,7 @@ import { AddDto } from '../dto/tag/add.dto';
 import { Role } from '../../auth';
 import { UpdateDto } from '../dto/tag/update.dto';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ListDto } from '../dto/tag/list.dto';
 
 @ApiTags('标签')
 @Controller('tag')
@@ -29,9 +30,9 @@ export class TagController {
   }
 
   //分页查
-  @Post('list')
-  listByPage(@Body() data: PageDto) {
-    return this.tagService.listByPage(data.limit, data.page);
+  @Post('getList')
+  listByPage(@Body() data: ListDto) {
+    return this.tagService.listByPage(data);
   }
 
   //新增标签
@@ -43,14 +44,14 @@ export class TagController {
 
   //修改标签
   @Role('admin')
-  @Put('update')
+  @Post('update')
   update(@Body() data: UpdateDto) {
     return this.tagService.update(data.id, data.name);
   }
 
   //删除标签
   @Role('admin')
-  @Delete('delete')
+  @Get('delete')
   deleteByID(@Query('ids') ids: string) {
     return this.tagService.batchDelete(ids);
   }
