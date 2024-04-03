@@ -35,6 +35,7 @@ apps/backend/application.local.yaml
 # uload files
 apps/backend/upload
 apps/backend/uploadFile
+apps/backend/log/app.log
 ### backend ####
 apps/*logs
 apps/*/*.log

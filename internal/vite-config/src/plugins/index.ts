@@ -1,14 +1,15 @@
-import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
-import { type PluginOption } from 'vite';
-import purgeIcons from 'vite-plugin-purge-icons';
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import { type PluginOption } from "vite";
+import purgeIcons from "vite-plugin-purge-icons";
+import VueDevTools from "vite-plugin-vue-devtools";
 
-import { createAppConfigPlugin } from './appConfig';
-import { configCompressPlugin } from './compress';
-import { configHtmlPlugin } from './html';
-import { configMockPlugin } from './mock';
-import { configSvgIconsPlugin } from './svgSprite';
-import { configVisualizerConfig } from './visualizer';
+import { createAppConfigPlugin } from "./appConfig";
+import { configCompressPlugin } from "./compress";
+import { configHtmlPlugin } from "./html";
+import { configMockPlugin } from "./mock";
+import { configSvgIconsPlugin } from "./svgSprite";
+import { configVisualizerConfig } from "./visualizer";
 
 interface Options {
   isBuild: boolean;
@@ -41,6 +42,8 @@ async function createPlugins({ isBuild, root, enableMock, compress, enableAnalyz
         compress,
       }),
     );
+  } else {
+    // vitePlugins.push(VueDevTools());
   }
 
   // rollup-plugin-visualizer

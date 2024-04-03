@@ -1,0 +1,23 @@
+{
+  "name": "@common/edditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bytemd/plugin-breaks": "^1.21.0",
+    "@bytemd/plugin-frontmatter": "^1.21.0",
+    "@bytemd/plugin-gemoji": "^1.21.0",
+    "@bytemd/plugin-gfm": "^1.21.0",
+    "@bytemd/plugin-highlight": "^1.21.0",
+    "@bytemd/plugin-math": "^1.21.0",
+    "@bytemd/plugin-medium-zoom": "^1.21.0",
+    "@bytemd/plugin-mermaid": "^1.21.0",
+    "@bytemd/vue-next": "^1.21.0",
+    "bytemd": "^1.21.0",
+    "juejin-markdown-themes": "^1.34.0"
+  }
+}

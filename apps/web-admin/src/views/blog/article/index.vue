@@ -33,16 +33,20 @@
         </template>
       </template>
     </BasicTable>
+    <ArticleDetails @register="registerModal" :details-id="detailsId" />
   </PageWrapper>
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue';
   import { useRouter } from 'vue-router';
   import { PageWrapper } from '@/components/Page';
   import { BasicTable, TableAction, useTable } from '@/components/Table';
   import { deleteArticleApi, getArticleListApi } from '@/api/blog/article';
   import { columns } from './article.data';
   import { useMessage } from '@/hooks/web/useMessage';
+  import ArticleDetails from '@/views/blog/article/ArticleDetails.vue';
+  import { useModal } from '@/components/Modal';
 
   defineOptions({ name: 'ArticleManagement' });
 
@@ -76,8 +80,15 @@
       reload();
     });
   }
+
+  const [registerModal, { openModal }] = useModal();
+  //详情文章的id
+  const detailsId = ref('');
   //点击查看文章详情
-  function handleView(record: Recordable) {}
+  function handleView(record: Recordable) {
+    detailsId.value = record.id;
+    openModal();
+  }
   //打开编辑文章页面
   function handleEdit(record: Recordable) {
     router.push(`/blog/article/edit/${record.id}`);
