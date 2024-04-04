@@ -1,12 +1,20 @@
 {
-  "name": "@common/edditor",
+  "name": "@common/editor",
   "version": "1.0.0",
-  "description": "",
-  "main": "",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "scripts": {
+    "clean": "pnpm rimraf .turbo node_modules dist",
+    "lint": "pnpm eslint .",
+    "stub": "pnpm unbuild --stub"
+  },
+  "keywords": [
+    "bytemd",
+    "plugins"
+  ],
+  "author": "zerotower",
   "dependencies": {
     "@bytemd/plugin-breaks": "^1.21.0",
     "@bytemd/plugin-frontmatter": "^1.21.0",
@@ -18,6 +26,11 @@
     "@bytemd/plugin-mermaid": "^1.21.0",
     "@bytemd/vue-next": "^1.21.0",
     "bytemd": "^1.21.0",
-    "juejin-markdown-themes": "^1.34.0"
+    "juejin-markdown-themes": "^1.34.0",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@vueuse/core": "^10.9.0",
+    "vue": "^3.4.19"
   }
 }

@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="byte-editor-box flex-1">
-      <ZEditor v-model="blogState.content" />
+      <ZEditor class="h-full" v-model:value="blogState.content" :upload-images="uploadImages" />
     </div>
     <ArticleDrawer @register="registerDrawer" v-model:data="blogState" :edit-type="getEditType" />
   </div>
@@ -19,10 +19,11 @@
   import { ref, unref, onMounted, computed } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
   import { message } from 'ant-design-vue';
-  import { ZEditor } from './editor';
+  import { ZEditor } from '@common/editor';
   import ArticleDrawer from '@/views/blog/article/ArticleDrawer.vue';
   import { useDrawer } from '@/components/Drawer';
   import { getArticleDetailsApi } from '@/api/blog/article';
+  import { uploadImageApi } from '@/api/file/image';
 
   const route = useRoute();
   const router = useRouter();
@@ -41,6 +42,23 @@
   }
   //根据路由信息判断是新增还是更改
   const getEditType = computed(() => (route.path.indexOf('article/add') > -1 ? 'add' : 'update'));
+
+  async function uploadImages(files: File[]) {
+    const promises = files.map((file) => uploadImageApi(file));
+    const list = await Promise.allSettled(promises);
+    const res: { title: string; url: string }[] = [];
+    list.forEach((item, index) => {
+      if (item.status === 'fulfilled') {
+        res.push({
+          title: files[index].name,
+          url: item?.value?.url ?? '',
+        });
+      }
+    });
+    return res;
+  }
+
+  //新建时创建默认的文章数据
   function createNewBlog() {
     return {
       title: '',
@@ -90,6 +108,9 @@
     }
     openDrawer(true);
   }
+
+  //TODO：[admin] 生成默认的文章摘要
+  function generateArticleAbstract() {}
   onMounted(() => {
     initPage();
   });
