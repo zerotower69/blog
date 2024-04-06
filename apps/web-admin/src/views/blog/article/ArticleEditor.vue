@@ -19,7 +19,7 @@
   import { ref, unref, onMounted, computed } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
   import { message } from 'ant-design-vue';
-  import { ZEditor } from '@common/editor';
+  import { ZEditor } from '@zerotower/editor';
   import ArticleDrawer from '@/views/blog/article/ArticleDrawer.vue';
   import { useDrawer } from '@/components/Drawer';
   import { getArticleDetailsApi } from '@/api/blog/article';

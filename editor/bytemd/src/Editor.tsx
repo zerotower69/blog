@@ -12,9 +12,9 @@ import mermaidHans from "@bytemd/plugin-mermaid/locales/zh_Hans.json";
 import mediumZoom from "@bytemd/plugin-medium-zoom";
 import "bytemd/dist/index.css";
 import zhHans from "bytemd/locales/zh_Hans.json";
-import { defineComponent, PropType } from "vue";
-import { useVModel } from "@vueuse/core";
-import { autoHighlightPlugin, autoThemePlugin } from "./plugins";
+import { defineComponent, PropType, computed } from "vue";
+import switchTheme from "@zerotower/bytemd-plugin-switch-theme";
+import switchHighlight from "@zerotower/bytemd-plugin-switch-highlight";
 import type { BytemdPlugin } from "bytemd";
 
 const defaultPlugins = [
@@ -31,8 +31,10 @@ const defaultPlugins = [
   }),
   mediumZoom(),
   //自定义插件
-  autoThemePlugin(), //根据theme: xxx 决定应用的样式
-  autoHighlightPlugin(),
+  switchTheme(),
+  switchHighlight({
+    cdn: ["https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/highlight.js/11.4.0/styles/base16"],
+  }),
 ];
 
 //封装编辑器
@@ -40,22 +42,31 @@ export const ZEditor = defineComponent({
   components: {
     //@ts-ignore
     Editor,
-    //@ts-ignore
-    Viewer,
   },
   props: {
+    //编辑的文档
     value: {
       type: String,
       default: "",
     },
+    //插件，默认导入所有的
     plugins: {
       type: Array as PropType<BytemdPlugin[]>,
       default: () => defaultPlugins,
     },
+    //上传图片
     uploadImages: Function as PropType<(file: File[]) => Promise<{ title: string; url: string }[]>>,
   },
-  setup(props) {
-    const content = useVModel(props, "value");
+  emits: ["update:value"],
+  setup(props, { emit }) {
+    const content = computed({
+      get() {
+        return props.value;
+      },
+      set(val) {
+        emit("update:value", val);
+      },
+    });
     function handleChange(v: string) {
       content.value = v;
     }
@@ -81,6 +92,10 @@ export const ZEditor = defineComponent({
 
 //封装预览页面
 export const ZViewer = defineComponent({
+  components: {
+    //@ts-ignore
+    Viewer,
+  },
   props: {
     //文章内容
     content: {

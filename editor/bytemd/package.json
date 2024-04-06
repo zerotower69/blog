@@ -1,20 +1,18 @@
 {
-  "name": "@common/editor",
+  "name": "@zerotower/editor",
   "version": "1.0.0",
-  "private": true,
+  "description": "using bytemd for vue3",
   "type": "module",
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
-  "scripts": {
-    "clean": "pnpm rimraf .turbo node_modules dist",
-    "lint": "pnpm eslint .",
-    "stub": "pnpm unbuild --stub"
-  },
+  "main": "src/Editor.tsx",
   "keywords": [
+    "markdown",
     "bytemd",
-    "plugins"
+    "editor"
   ],
-  "author": "zerotower",
+  "author": "zerotower<zerotower@163.com>",
+  "devDependencies": {
+    "vue": "^3.4.19"
+  },
   "dependencies": {
     "@bytemd/plugin-breaks": "^1.21.0",
     "@bytemd/plugin-frontmatter": "^1.21.0",
@@ -25,12 +23,6 @@
     "@bytemd/plugin-medium-zoom": "^1.21.0",
     "@bytemd/plugin-mermaid": "^1.21.0",
     "@bytemd/vue-next": "^1.21.0",
-    "bytemd": "^1.21.0",
-    "juejin-markdown-themes": "^1.34.0",
-    "lodash-es": "^4.17.21"
-  },
-  "devDependencies": {
-    "@vueuse/core": "^10.9.0",
-    "vue": "^3.4.19"
+    "bytemd": "^1.21.0"
   }
 }

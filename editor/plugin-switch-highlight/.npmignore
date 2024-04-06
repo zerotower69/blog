@@ -1,0 +1,4 @@
+dist
+.rollup.cache
+.tsbuildinfo
+tsconfig.tsbuildinfo
