@@ -3,7 +3,7 @@ import en from "../locales/en.json";
 import themes from "juejin-markdown-themes";
 import yaml from "js-yaml";
 
-type Locale = {
+export type Locale = {
   title: string;
 };
 
@@ -16,8 +16,10 @@ export interface BytemdPluginSwitchThemeOptions {
    * theme key in your formatter, default: theme
    */
   themeKey?: string;
-
-  locale?: string;
+  /**
+   * switch language as you like.
+   */
+  locale?: Locale;
 }
 export default function switchTheme(options: BytemdPluginSwitchThemeOptions = {}): BytemdPlugin {
   const THEME_KEY = options?.themeKey ?? "theme";

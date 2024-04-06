@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Res } from './response';
 import { Perm } from './auth/permission.decorator';
@@ -22,5 +22,10 @@ export class AppController {
   @Role('admin')
   testRole() {
     return Res.OK('只有管理员才能访问的接口');
+  }
+
+  @Get('getWebInfo')
+  getWebInfo(@Query('link') link: string) {
+    return this.appService.getWebInfo(link);
   }
 }

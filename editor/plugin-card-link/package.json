@@ -1,9 +1,9 @@
 {
-  "name": "@zerotower/bytemd-plugin-switch-theme",
+  "name": "@zerotower/bytemd-plugin-card-link",
   "version": "1.0.1",
   "type": "module",
   "description": "Switching markdown render's theme like juejin editor.",
-  "homepage": "https://github.com/zerotower69/editor/plugin-switch-theme/README.md",
+  "homepage": "https://github.com/zerotower69/editor/plugin-card-link/README.md",
   "bugs": {
     "url": "https://github.com/zerotower69/blog/issues"
   },
@@ -11,10 +11,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/zerotower69/blog",
-    "directory": "editor/plugin-switch-theme"
+    "directory": "editor/plugin-card-link"
   },
   "keywords": [
-    "theme",
+    "card-link",
     "bytemd",
     "markdown",
     "editor"
@@ -23,16 +23,15 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
     },
     "./locales/*": "./locales/*",
-    "./lib/locales/*": "./locales/*"
+    "./lib/locales/*": "./locales/*",
+    "./lib/index.css": "./lib/index.css"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
   "scripts": {
     "clean": "rimraf dist",
     "build:types": "npm run clean && tsc -b tsconfig.json",
@@ -51,7 +50,8 @@
     "@types/js-yaml": "^4.0.9",
     "bytemd": "^1.5.0",
     "rimraf": "^5.0.5",
-    "rollup": "^4.14.0"
+    "rollup": "^4.14.0",
+    "unist-util-visit": "^5.0.0"
   },
   "peerDependencies": {
     "bytemd": "^1.5.0"

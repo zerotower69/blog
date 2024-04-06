@@ -65,6 +65,8 @@
     "@zerotower/editor": "workspace:*",
     "@zerotower/bytemd-plugin-switch-theme": "workspace:*",
     "@zerotower/bytemd-plugin-switch-highlight": "workspace:*",
+    "@zerotower/bytemd-plugin-copy-code": "workspace:*",
+    "@zerotower/bytemd-plugin-card-link": "workspace:*",
     "add": "^2.0.6",
     "cz-git": "^1.9.0",
     "czg": "^1.9.0",

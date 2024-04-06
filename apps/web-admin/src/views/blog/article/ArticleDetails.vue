@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { ZViewer } from '@common/editor';
+  import { ZViewer } from '@zerotower/editor';
   import BasicModal from '@/components/Modal/src/BasicModal.vue';
   import { useModalInner } from '@/components/Modal';
   import { getArticleDetailsApi } from '@/api/blog/article';
@@ -16,7 +16,7 @@
     content: '',
   });
 
-  const [registerModal, { closeModal, setModalProps }] = useModalInner();
+  const [registerModal, { setModalProps }] = useModalInner();
   const emits = defineEmits(['register']);
 
   function getArtcileDetails() {

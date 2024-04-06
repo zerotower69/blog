@@ -27,7 +27,9 @@
     "reinstall": "rimraf pnpm-lock.yaml && rimraf npm.lock.json && npm run bootstrap:backend"
   },
   "dependencies": {
+    "axios": "^1.6.7",
     "chalk": "4",
+    "cheerio": "1.0.0-rc.12",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "dayjs": "^1.11.10",
@@ -35,6 +37,7 @@
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "mysql2": "^3.9.2",
+    "puppeteer": "^22.6.3",
     "qiniu": "^7.11.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",

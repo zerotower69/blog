@@ -1,0 +1,9 @@
+.zt-card-bookmark{
+
+}
+.zt-card-bookmark .zt-card-bookmark-link,
+.zt-card-bookmark .zt-card-bookmark-link:before,
+.zt-card-bookmark .zt-card-bookmark-link:after{
+    background-image: unset !important;
+    background-size: unset !important;
+}

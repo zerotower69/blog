@@ -1,5 +1,6 @@
 //@ts-ignore
 import { Editor, Viewer } from "@bytemd/vue-next";
+import "./editor.less";
 import gfm from "@bytemd/plugin-gfm";
 import breaks from "@bytemd/plugin-breaks";
 import frontMatter from "@bytemd/plugin-frontmatter";
@@ -11,13 +12,18 @@ import mermaid from "@bytemd/plugin-mermaid";
 import mermaidHans from "@bytemd/plugin-mermaid/locales/zh_Hans.json";
 import mediumZoom from "@bytemd/plugin-medium-zoom";
 import "bytemd/dist/index.css";
+import type { BytemdPlugin } from "bytemd";
 import zhHans from "bytemd/locales/zh_Hans.json";
 import { defineComponent, PropType, computed } from "vue";
 import switchTheme from "@zerotower/bytemd-plugin-switch-theme";
+import theme_zh from "@zerotower/bytemd-plugin-switch-theme/locales/zh_Hans.json";
 import switchHighlight from "@zerotower/bytemd-plugin-switch-highlight";
-import type { BytemdPlugin } from "bytemd";
+import copyCode from "@zerotower/bytemd-plugin-copy-code";
+import cardLink from "@zerotower/bytemd-plugin-card-link";
+// import "@zerotower/bytemd-plugin-card-link/lib/index.css";
+import "./card-link.less";
 
-const defaultPlugins = [
+export const DEFAULT_PLUGINS = [
   gfm(),
   breaks(),
   frontMatter(),
@@ -30,10 +36,20 @@ const defaultPlugins = [
     locale: mermaidHans,
   }),
   mediumZoom(),
+];
+
+const plugins = [
+  ...DEFAULT_PLUGINS,
   //自定义插件
-  switchTheme(),
+  switchTheme({
+    locale: theme_zh,
+  }),
   switchHighlight({
     cdn: ["https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/highlight.js/11.4.0/styles/base16"],
+  }),
+  copyCode({}),
+  cardLink({
+    openMode: "blank",
   }),
 ];
 
@@ -52,7 +68,7 @@ export const ZEditor = defineComponent({
     //插件，默认导入所有的
     plugins: {
       type: Array as PropType<BytemdPlugin[]>,
-      default: () => defaultPlugins,
+      default: () => plugins,
     },
     //上传图片
     uploadImages: Function as PropType<(file: File[]) => Promise<{ title: string; url: string }[]>>,
@@ -105,7 +121,7 @@ export const ZViewer = defineComponent({
     //插件
     plugins: {
       type: Array as PropType<BytemdPlugin[]>,
-      default: () => defaultPlugins,
+      default: () => plugins,
     },
     tabIndex: {
       type: Number,

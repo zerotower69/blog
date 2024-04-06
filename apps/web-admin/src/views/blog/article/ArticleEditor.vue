@@ -10,7 +10,17 @@
       </div>
     </div>
     <div class="byte-editor-box flex-1">
-      <ZEditor class="h-full" v-model:value="blogState.content" :upload-images="uploadImages" />
+      <ZEditor
+        class="h-full"
+        v-model:value="blogState.content"
+        :upload-images="uploadImages"
+        :plugins="[
+          ...DEFAULT_PLUGINS,
+          cardLink({
+            loadInfoApi: loadInfo,
+          }),
+        ]"
+      />
     </div>
     <ArticleDrawer @register="registerDrawer" v-model:data="blogState" :edit-type="getEditType" />
   </div>
@@ -19,11 +29,18 @@
   import { ref, unref, onMounted, computed } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
   import { message } from 'ant-design-vue';
-  import { ZEditor } from '@zerotower/editor';
+  import { ZEditor, DEFAULT_PLUGINS } from '@zerotower/editor';
+  import cardLink, { WebInfo } from '@zerotower/bytemd-plugin-card-link';
   import ArticleDrawer from '@/views/blog/article/ArticleDrawer.vue';
   import { useDrawer } from '@/components/Drawer';
-  import { getArticleDetailsApi } from '@/api/blog/article';
+  import { getArticleDetailsApi, getWebInfoApi } from '@/api/blog/article';
   import { uploadImageApi } from '@/api/file/image';
+
+  function loadInfo(url: string) {
+    return getWebInfoApi(url).then((data) => {
+      return data;
+    });
+  }
 
   const route = useRoute();
   const router = useRouter();

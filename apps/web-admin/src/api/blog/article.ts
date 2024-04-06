@@ -12,6 +12,7 @@ enum Api {
   DELETE_ARTICLE = '/article/delete',
   UPDATE_ARTICLE = '/article/update',
   GET_DETAILS = '/article/admin/details',
+  GET_WEBINFO = '/getWebInfo',
 }
 
 //获取文章列表数据
@@ -78,4 +79,18 @@ export function getArticleDetailsApi(id: string) {
       errorMessageMode: 'message',
     },
   );
+}
+
+/**
+ * 获取网站信息
+ * @param url
+ */
+export function getWebInfoApi(url: string) {
+  return defHttp.get<Recordable>({
+    url: Api.GET_WEBINFO,
+    params: {
+      link: url,
+    },
+    timeout: 30 * 1000,
+  });
 }
