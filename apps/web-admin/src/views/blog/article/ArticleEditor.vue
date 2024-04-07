@@ -14,12 +14,7 @@
         class="h-full"
         v-model:value="blogState.content"
         :upload-images="uploadImages"
-        :plugins="[
-          ...DEFAULT_PLUGINS,
-          cardLink({
-            loadInfoApi: loadInfo,
-          }),
-        ]"
+        :plugins="[...DEFAULT_PLUGINS, switchTheme(), switchHighlight()]"
       />
     </div>
     <ArticleDrawer @register="registerDrawer" v-model:data="blogState" :edit-type="getEditType" />
@@ -30,7 +25,8 @@
   import { useRoute, useRouter } from 'vue-router';
   import { message } from 'ant-design-vue';
   import { ZEditor, DEFAULT_PLUGINS } from '@zerotower/editor';
-  import cardLink, { WebInfo } from '@zerotower/bytemd-plugin-card-link';
+  import switchTheme from '@zerotower/bytemd-plugin-switch-theme';
+  import switchHighlight from '@zerotower/bytemd-plugin-switch-highlight';
   import ArticleDrawer from '@/views/blog/article/ArticleDrawer.vue';
   import { useDrawer } from '@/components/Drawer';
   import { getArticleDetailsApi, getWebInfoApi } from '@/api/blog/article';

@@ -3,6 +3,7 @@ import nodeResolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import json from "@rollup/plugin-json"
 import terser from "@rollup/plugin-terser"
+import {resolve} from "path"
 
 export default {
   extends:"",
@@ -20,10 +21,12 @@ export default {
   plugins:[
     json(),
     nodeResolve(),
-    typescript(),
+    typescript({
+      tsconfig:"tsconfig.json",
+    }),
     commonjs({
       include:/node_modules/
     }),
-    terser()
+    terser(),
   ]
 }

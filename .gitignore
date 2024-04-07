@@ -31,6 +31,7 @@ apps/web/.env.local
 # backend yaml config file
 apps/backend/application.prod.yaml
 # local file
+apps/backend/application.local.yaml（dev）
 apps/backend/application.local.yaml
 # uload files
 apps/backend/upload

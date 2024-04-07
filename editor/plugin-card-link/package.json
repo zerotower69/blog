@@ -23,23 +23,25 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "require": "./src/index.ts"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./locales/*": "./locales/*",
     "./lib/locales/*": "./locales/*",
     "./lib/index.css": "./lib/index.css"
   },
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
-    "build:types": "npm run clean && tsc -b tsconfig.json",
-    "build": "npm run build:types && rollup -c rollup.config.mjs"
+    "build": "npm run clean && rollup -c rollup.config.mjs"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
-    "juejin-markdown-themes": "^1.34.0"
+    "juejin-markdown-themes": "^1.34.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -48,9 +50,11 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/js-yaml": "^4.0.9",
+    "@types/uuid": "^9.0.8",
     "bytemd": "^1.5.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.14.0",
+    "rollup-plugin-dts": "^6.1.0",
     "unist-util-visit": "^5.0.0"
   },
   "peerDependencies": {

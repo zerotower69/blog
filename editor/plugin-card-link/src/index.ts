@@ -1,6 +1,6 @@
 import type { BytemdPlugin, BytemdViewerContext } from "bytemd";
 import { visit } from "unist-util-visit";
-import { addClass, hasClass, removeClass } from "./utils";
+import { v4 as uuidv4 } from "uuid";
 
 export type Locale = {};
 
@@ -26,23 +26,60 @@ export interface ByteMDPluginCardLinkOptions {
    * indicate links which don't need to transform.
    */
   exclude?: ExcludeItem | ExcludeItem[];
+  /**
+   * will be using to fetch the info of web
+   */
   loadInfoApi?: (url: string) => Promise<Partial<WebInfo>>;
+  /**
+   * define the value of the property [href] of a element,
+   * default: blank
+   */
   openMode: "self" | "blank";
+  /**
+   * when loadInfoApi timeout>= options.timeout, using default data
+   * default: 30s
+   */
+  timeout?: number;
+  /**
+   * will be using then webinfo hasn't the icon property or loading icon occur error.
+   * default: https://bpic.588ku.com/element_origin_min_pic/00/72/81/9356def45e71de5.jpg
+   */
+  defaultIcon?: String;
+
+  /**
+   * skeleton card root class, you can use it to change the styles of skeleton card.
+   */
+  skeletonWrapClass?: string;
+  /**
+   * data card root class, you can use it to change the styles of data card
+   */
+  dataWrapClass?: string;
 }
+
+const observerMap = new WeakSet<HTMLLinkElement>();
 
 export default function cardLink(
   options: ByteMDPluginCardLinkOptions = {
     openMode: "blank",
   },
 ): BytemdPlugin {
-  async function fetchWebInfo(link: string) {
-    const res = await fetch(link).then((res) => res.text);
-    console.log(res);
-    return res;
-  }
-  function getEmptyBox(link: string) {
+  const {
+    defaultIcon = "https://bpic.588ku.com/element_origin_min_pic/00/72/81/9356def45e71de5.jpg",
+    openMode = "blank",
+    skeletonWrapClass,
+    dataWrapClass,
+    loadInfoApi,
+    timeout = 30 * 1000,
+  } = options ?? {};
+  function renderSkeletonCard(link: string) {
     const root = document.createElement("div");
     addClass(root, "zt-card-bookmark loading");
+    if (skeletonWrapClass) {
+      const getClass = skeletonWrapClass.split(" ").shift() as string;
+      if (!hasClass(root, getClass)) {
+        addClass(root, getClass);
+      }
+    }
     root.innerHTML = `<a class="zt-card-bookmark-link" href="${link}" target="${options.openMode === "self" ? "_self" : "_blank"}">
     <div class="zt-card-bookmark-details">
       <div class="zt-card-bookmark-content">
@@ -55,25 +92,88 @@ export default function cardLink(
    </div></a>`;
     return root;
   }
-  function getDataBox(data: WebInfo, defaultDesc?: string) {
+
+  //render data card
+  function renderDataCard(data: Partial<WebInfo>, defaultDesc?: string) {
     const root = document.createElement("div");
+    const uid = uuidv4();
     if (!data.desc) {
       data.desc = defaultDesc ?? "";
     }
     addClass(root, "zt-card-bookmark");
+    if (dataWrapClass) {
+      const getClass = dataWrapClass.split(" ").shift() as string;
+      if (!hasClass(root, getClass)) {
+        addClass(root, getClass);
+      }
+    }
     root.innerHTML = `<a class="zt-card-bookmark-link" href="${data.url}" target="${options.openMode === "self" ? "_self" : "_blank"}">
     <div class="zt-card-bookmark-details">
       <div class="zt-card-bookmark-content">
-      <img class="zt-card-bookmark-image" src="${data.icon}" alt="icon"/>
+      <img data-uid="${uid}" class="zt-card-bookmark-image" src="${data.icon}" alt="icon" />
       <div class="zt-card-bookmark-body">
       <div class="zt-card-bookmark-title">
-      ${data.title}
+      ${data?.title ?? data?.desc}
 </div>
-      <div class="zt-card-bookmark-desc">${data.desc}</div>
+      <div class="zt-card-bookmark-desc">${data?.desc ?? data.url}</div>
       </div>
     </div>
    </div></a>`;
+    setTimeout(() => {
+      const imgEl = document.querySelector(`img[data-uid="${uid}"]`);
+      if (imgEl) {
+        (imgEl as HTMLImageElement).addEventListener("error", (e) => {
+          iconLoadError(e);
+        });
+      }
+    }, 0);
     return root;
+  }
+
+  //when image load error, using defaultIcon,
+  // you must be sure the defaultIcon can be loaded successfully.
+  function iconLoadError(e: Event) {
+    const el = e.target as HTMLImageElement;
+    el.setAttribute("src", defaultIcon as string);
+    el.removeEventListener("error", iconLoadError);
+  }
+  //deal link to card
+  function renderCard(aEl: HTMLLinkElement) {
+    const url = aEl?.getAttribute("href") ?? "";
+    //not validated link, do nothing
+    if (!isHttpOrHttps(url)) return;
+    //add link class
+    if (!hasClass(aEl, LINK_CLASS)) {
+      addClass(aEl, LINK_CLASS);
+    }
+    const defaultDesc = aEl?.textContent ?? url;
+    const emptyCardRoot = renderSkeletonCard(url);
+    aEl.replaceWith(emptyCardRoot);
+    const defaultWebInfo: Partial<WebInfo> = {
+      title: defaultDesc,
+      url: url,
+      icon: defaultIcon as string,
+      desc: url,
+    };
+    const task = new Promise<Partial<WebInfo>>((resolve, reject) => {
+      loadInfoApi?.(url).then(
+        (data) => {
+          resolve({
+            ...defaultWebInfo,
+            ...data,
+          });
+        },
+        () => {
+          resolve(defaultWebInfo);
+        },
+      );
+      setTimeout(() => {
+        resolve(defaultWebInfo);
+      }, timeout);
+    });
+    task.then((data) => {
+      emptyCardRoot.replaceWith(renderDataCard(data));
+    });
   }
   return {
     remark: (p) => {
@@ -117,20 +217,27 @@ export default function cardLink(
       return p;
     },
     viewerEffect({ markdownBody }): void | (() => void) {
-      const eles = document.getElementsByClassName(TEMP_LINK_CLASS);
-      Array.from(eles).forEach((ele) => {
-        const defaultDesc = ele.textContent;
-        removeClass(ele, TEMP_LINK_CLASS);
-        if (!hasClass(ele, LINK_CLASS)) {
-          addClass(ele, LINK_CLASS);
-        }
-        const url = ele?.getAttribute("href") ?? "";
-        const emptyRoot = getEmptyBox(url);
-        ele.replaceWith(emptyRoot);
-        options?.loadInfoApi?.(url)?.then((data) => {
-          emptyRoot.replaceWith(getDataBox(data, defaultDesc));
+      const eles = document.getElementsByClassName(TEMP_LINK_CLASS) as HTMLCollectionOf<HTMLLinkElement>;
+      if (window.IntersectionObserver) {
+        const intersectionObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.intersectionRatio <= 0) return;
+            renderCard(entry.target as HTMLLinkElement);
+            //remove from observer
+            intersectionObserver.unobserve(entry.target);
+          });
         });
-      });
+        Array.from(eles).forEach((ele) => {
+          if (observerMap.has(ele)) return;
+          intersectionObserver.observe(ele);
+          observerMap.add(ele);
+        });
+        console.log(intersectionObserver.takeRecords());
+      } else {
+        Array.from(eles).forEach((ele) => {
+          renderCard(ele);
+        });
+      }
     },
   };
 }
@@ -158,3 +265,20 @@ function isRegExp(val: any) {
 function isHttpOrHttps(link: string) {
   return /^http(s)*/.test(link);
 }
+
+export const classNameToArray = (cls = "") => cls.split(" ").filter((item) => !!item.trim());
+export const hasClass = (el: Element, cls: string): boolean => {
+  if (!el || !cls) return false;
+  if (cls.includes(" ")) throw new Error("className should not contain space.");
+  return el.classList.contains(cls);
+};
+
+export const addClass = (el: Element, cls: string) => {
+  if (!el || !cls.trim()) return;
+  el.classList.add(...classNameToArray(cls));
+};
+
+export const removeClass = (el: Element, cls: string) => {
+  if (!el || !cls.trim()) return;
+  el.classList.remove(...classNameToArray(cls));
+};

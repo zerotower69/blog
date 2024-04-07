@@ -1,9 +1,12 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { ZViewer } from '@zerotower/editor';
+  import { ZViewer, DEFAULT_PLUGINS } from '@zerotower/editor';
   import BasicModal from '@/components/Modal/src/BasicModal.vue';
   import { useModalInner } from '@/components/Modal';
-  import { getArticleDetailsApi } from '@/api/blog/article';
+  import { getArticleDetailsApi, getWebInfoApi } from '@/api/blog/article';
+  import cardLink from '@zerotower/bytemd-plugin-card-link';
+  import switchTheme from '@zerotower/bytemd-plugin-switch-theme';
+  import switchHighlight from '@zerotower/bytemd-plugin-switch-highlight';
 
   const props = defineProps({
     detailsId: {
@@ -11,6 +14,12 @@
       required: true,
     },
   });
+
+  function loadInfo(url: string) {
+    return getWebInfoApi(url).then((data) => {
+      return data;
+    });
+  }
 
   const blogState = ref<Recordable>({
     content: '',
@@ -40,7 +49,18 @@
 
 <template>
   <BasicModal @v-bind="$attrs" @register="registerModal" title="文章详情" @open-change="handleOpen">
-    <ZViewer :content="blogState.content" />
+    <ZViewer
+      :content="blogState.content"
+      :plugins="[
+        ...DEFAULT_PLUGINS,
+        cardLink({
+          openMode: 'blank',
+          loadInfoApi: loadInfo,
+        }),
+        switchTheme(),
+        switchHighlight({}),
+      ]"
+    />
   </BasicModal>
 </template>
 

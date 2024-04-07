@@ -8,8 +8,9 @@ export class AppService {
   async getWebInfo(url: string) {
     try {
       const browser = await puppeteer.launch({
-        headless: true,
+        headless: 'shell',
         devtools: false,
+        args: ['--devtools-flags=disable'],
       });
       const page = await browser.newPage();
       await page.goto(url, {

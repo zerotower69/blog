@@ -10,9 +10,12 @@
     "composite": true,
     "rootDir": "./src",
     "outDir": "./dist",
+    "allowImportingTsExtensions": true,
     "emitDeclarationOnly": true,
-    "allowImportingTsExtensions": true
+    "declaration": true,
+    "declarationDir": "./dist",
+    "noImplicitAny": true
   },
   "exclude": ["node_modules"],
-  "include": ["src/*.ts","locales/**/*.json"]
+  "include": ["src/index.ts","locales/**/*.json"]
 }

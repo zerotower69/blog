@@ -20,8 +20,7 @@ import theme_zh from "@zerotower/bytemd-plugin-switch-theme/locales/zh_Hans.json
 import switchHighlight from "@zerotower/bytemd-plugin-switch-highlight";
 import copyCode from "@zerotower/bytemd-plugin-copy-code";
 import cardLink from "@zerotower/bytemd-plugin-card-link";
-// import "@zerotower/bytemd-plugin-card-link/lib/index.css";
-import "./card-link.less";
+import "@zerotower/bytemd-plugin-card-link/lib/index.css";
 
 export const DEFAULT_PLUGINS = [
   gfm(),
