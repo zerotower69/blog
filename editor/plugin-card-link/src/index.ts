@@ -1,10 +1,10 @@
-import type { BytemdPlugin, BytemdViewerContext } from "bytemd";
+import type { BytemdPlugin } from "bytemd";
 import { visit } from "unist-util-visit";
 import { v4 as uuidv4 } from "uuid";
+import { addClass, hasClass } from "./style";
+import { ExcludeItem, isExclude, isHttpOrHttps } from "./utils";
 
 export type Locale = {};
-
-export type ExcludeItem = string | RegExp;
 
 const TEMP_LINK_CLASS = "link-temp-to-be-card";
 const LINK_CLASS = "zt-bookmark-link";
@@ -34,7 +34,7 @@ export interface ByteMDPluginCardLinkOptions {
    * define the value of the property [href] of a element,
    * default: blank
    */
-  openMode: "self" | "blank";
+  openMode?: "self" | "blank";
   /**
    * when loadInfoApi timeout>= options.timeout, using default data
    * default: 30s
@@ -54,15 +54,13 @@ export interface ByteMDPluginCardLinkOptions {
    * data card root class, you can use it to change the styles of data card
    */
   dataWrapClass?: string;
+  /**
+   * the second parameter of IntersectionObserver, options
+   */
+  observerOptions?: IntersectionObserverInit;
 }
 
-const observerMap = new WeakSet<HTMLLinkElement>();
-
-export default function cardLink(
-  options: ByteMDPluginCardLinkOptions = {
-    openMode: "blank",
-  },
-): BytemdPlugin {
+export default function cardLink(options: ByteMDPluginCardLinkOptions = {}): BytemdPlugin {
   const {
     defaultIcon = "https://bpic.588ku.com/element_origin_min_pic/00/72/81/9356def45e71de5.jpg",
     openMode = "blank",
@@ -70,7 +68,10 @@ export default function cardLink(
     dataWrapClass,
     loadInfoApi,
     timeout = 30 * 1000,
+    observerOptions,
   } = options ?? {};
+  // because of the loadInfoApi be called in many times, so using the WeakSet to record elements that is undealt to solve it.
+  const observerMap = new WeakSet<HTMLLinkElement>();
   function renderSkeletonCard(link: string) {
     const root = document.createElement("div");
     addClass(root, "zt-card-bookmark loading");
@@ -80,7 +81,7 @@ export default function cardLink(
         addClass(root, getClass);
       }
     }
-    root.innerHTML = `<a class="zt-card-bookmark-link" href="${link}" target="${options.openMode === "self" ? "_self" : "_blank"}">
+    root.innerHTML = `<a class="zt-card-bookmark-link" href="${link}" target="${openMode === "self" ? "_self" : "_blank"}">
     <div class="zt-card-bookmark-details">
       <div class="zt-card-bookmark-content">
       <div class="zt-card-bookmark-image"></div>
@@ -107,7 +108,7 @@ export default function cardLink(
         addClass(root, getClass);
       }
     }
-    root.innerHTML = `<a class="zt-card-bookmark-link" href="${data.url}" target="${options.openMode === "self" ? "_self" : "_blank"}">
+    root.innerHTML = `<a class="zt-card-bookmark-link" href="${data.url}" target="${openMode === "self" ? "_self" : "_blank"}">
     <div class="zt-card-bookmark-details">
       <div class="zt-card-bookmark-content">
       <img data-uid="${uid}" class="zt-card-bookmark-image" src="${data.icon}" alt="icon" />
@@ -216,69 +217,38 @@ export default function cardLink(
       });
       return p;
     },
+    rehype: (p) => {
+      p.use(() => (tree, vFile) => {
+        visit(tree, (node) => {});
+        return tree;
+      });
+      return p;
+    },
     viewerEffect({ markdownBody }): void | (() => void) {
-      const eles = document.getElementsByClassName(TEMP_LINK_CLASS) as HTMLCollectionOf<HTMLLinkElement>;
+      const eles = markdownBody.getElementsByClassName(TEMP_LINK_CLASS) as HTMLCollectionOf<HTMLLinkElement>;
+      let intersectionObserver: IntersectionObserver | null = null;
       if (window.IntersectionObserver) {
-        const intersectionObserver = new IntersectionObserver((entries, observer) => {
+        intersectionObserver = new IntersectionObserver((entries, observer) => {
           entries.forEach((entry) => {
-            if (entry.intersectionRatio <= 0) return;
+            if (!entry.isIntersecting) return;
             renderCard(entry.target as HTMLLinkElement);
             //remove from observer
-            intersectionObserver.unobserve(entry.target);
+            (intersectionObserver as IntersectionObserver).unobserve(entry.target);
           });
-        });
+        }, observerOptions);
         Array.from(eles).forEach((ele) => {
           if (observerMap.has(ele)) return;
-          intersectionObserver.observe(ele);
+          (intersectionObserver as IntersectionObserver).observe(ele);
           observerMap.add(ele);
         });
-        console.log(intersectionObserver.takeRecords());
       } else {
         Array.from(eles).forEach((ele) => {
           renderCard(ele);
         });
       }
+      return () => {
+        intersectionObserver?.disconnect();
+      };
     },
   };
 }
-
-function isExclude(exclude: ExcludeItem | ExcludeItem[], link: string): boolean {
-  if (Array.isArray(exclude)) {
-    return exclude.some((item) => isExclude(item, link));
-  } else {
-    return isRegExp(exclude) ? regexpCheck(exclude as RegExp, link) : stringCheck(exclude as string, link);
-  }
-
-  function regexpCheck(reg: RegExp, link: string) {
-    return reg.test(link);
-  }
-  function stringCheck(excludeStr: string, link: string) {
-    return excludeStr === link;
-  }
-}
-
-function isRegExp(val: any) {
-  const res = Object.prototype.toString.call(val);
-  return res.substring(8, res.length - 1) === "RegExp";
-}
-
-function isHttpOrHttps(link: string) {
-  return /^http(s)*/.test(link);
-}
-
-export const classNameToArray = (cls = "") => cls.split(" ").filter((item) => !!item.trim());
-export const hasClass = (el: Element, cls: string): boolean => {
-  if (!el || !cls) return false;
-  if (cls.includes(" ")) throw new Error("className should not contain space.");
-  return el.classList.contains(cls);
-};
-
-export const addClass = (el: Element, cls: string) => {
-  if (!el || !cls.trim()) return;
-  el.classList.add(...classNameToArray(cls));
-};
-
-export const removeClass = (el: Element, cls: string) => {
-  if (!el || !cls.trim()) return;
-  el.classList.remove(...classNameToArray(cls));
-};

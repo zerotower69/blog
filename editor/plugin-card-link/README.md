@@ -7,6 +7,7 @@
 ```jsx
 import { Viewer } from "bytemd"
 import cardLink from '@zerotower/bytemd-plugin-card-link';
+import "@zerotower/bytemd-plugin-card-link/lib/index.css";
 
 <Viewer plugins = {[cardLink({})]} />
 ```

@@ -11,6 +11,8 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "./dist",
     "allowImportingTsExtensions": true
   },
   "exclude": ["node_modules"],

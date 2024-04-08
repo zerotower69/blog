@@ -31,12 +31,12 @@ apps/web/.env.local
 # backend yaml config file
 apps/backend/application.prod.yaml
 # local file
-apps/backend/application.local.yaml（dev）
 apps/backend/application.local.yaml
 # uload files
 apps/backend/upload
 apps/backend/uploadFile
 apps/backend/log/app.log
+apps/backend/log
 ### backend ####
 apps/*logs
 apps/*/*.log
@@ -49,3 +49,16 @@ docs/dist
 packages/**/dist
 # internal
 internal/**/dist
+#editor
+editor/**/dist
+pnpm
+pnpm.*
+pnpx
+pnpx.*
+
+# rollup cache files
+editor/**/.rollup.cache/
+# all tsconfig.tsbuildinfo
+editor/**/tsconfig.tsbuildinfo
+**/tscofig.tsbuildinfo
+#

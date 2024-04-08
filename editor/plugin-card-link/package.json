@@ -1,9 +1,9 @@
 {
   "name": "@zerotower/bytemd-plugin-card-link",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "type": "module",
   "description": "Switching markdown render's theme like juejin editor.",
-  "homepage": "https://github.com/zerotower69/editor/plugin-card-link/README.md",
+  "homepage": "https://github.com/zerotower69/blog/blob/master/editor/plugin-card-link/README.md",
   "bugs": {
     "url": "https://github.com/zerotower69/blog/issues"
   },
@@ -24,8 +24,7 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./locales/*": "./locales/*",
     "./lib/locales/*": "./locales/*",
@@ -35,8 +34,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "npm run clean && rollup -c rollup.config.mjs"
+    "clean": "rimraf dist .rollup.cache tsconfig.tsbuildinfo",
+    "build": "npm run clean && rollup -c rollup.config.mjs --no-cache"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
@@ -55,6 +54,7 @@
     "rimraf": "^5.0.5",
     "rollup": "^4.14.0",
     "rollup-plugin-dts": "^6.1.0",
+    "tslib": "^2.6.2",
     "unist-util-visit": "^5.0.0"
   },
   "peerDependencies": {

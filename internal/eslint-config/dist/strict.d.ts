@@ -1,2 +1,0 @@
-export * from "/Users/zerotower/Documents/blog/admin/vue-vben-admin/internal/eslint-config/src/strict";
-export { default } from "/Users/zerotower/Documents/blog/admin/vue-vben-admin/internal/eslint-config/src/strict";

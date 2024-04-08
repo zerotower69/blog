@@ -6,7 +6,6 @@ import terser from "@rollup/plugin-terser"
 import {resolve} from "path"
 
 export default {
-  extends:"",
   input:"./src/index.ts",
   output:[
     {
@@ -23,6 +22,7 @@ export default {
     nodeResolve(),
     typescript({
       tsconfig:"tsconfig.json",
+      outputToFilesystem:false
     }),
     commonjs({
       include:/node_modules/

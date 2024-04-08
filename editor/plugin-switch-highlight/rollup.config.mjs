@@ -19,7 +19,9 @@ export default {
   plugins:[
     json(),
     nodeResolve(),
-    typescript(),
+    typescript({
+      tsconfig:"tsconfig.json"
+    }),
     commonjs({
       include:/node_modules/
     }),

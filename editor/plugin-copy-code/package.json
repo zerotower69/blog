@@ -33,8 +33,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
-    "build:types": "npm run clean && tsc -b tsconfig.json",
-    "build": "npm run build:types && rollup -c rollup.config.mjs"
+    "build": "npm run clean && rollup -c rollup.config.mjs"
   },
   "dependencies": {
     "clipboard": "^2.0.11",

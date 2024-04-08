@@ -10,7 +10,9 @@
     "composite": true,
     "rootDir": "./src",
     "outDir": "./dist",
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "./dist"
   },
   "exclude": ["node_modules"],
   "include": ["src/**/*.ts","src/locales/*.json","locales/**/*.json"]
