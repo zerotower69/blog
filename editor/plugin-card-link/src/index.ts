@@ -1,10 +1,13 @@
-import type { BytemdPlugin } from "bytemd";
+import type { BytemdPlugin, BytemdViewerContext } from "bytemd";
 import { visit } from "unist-util-visit";
 import { v4 as uuidv4 } from "uuid";
 import { addClass, hasClass } from "./style";
 import { ExcludeItem, isExclude, isHttpOrHttps } from "./utils";
+import Zh_hans from "../locales/zh_Hans.json";
 
-export type Locale = {};
+export type Locale = {
+  default_title: string;
+};
 
 const TEMP_LINK_CLASS = "link-temp-to-be-card";
 const LINK_CLASS = "zt-bookmark-link";
@@ -62,6 +65,7 @@ export interface ByteMDPluginCardLinkOptions {
 
 export default function cardLink(options: ByteMDPluginCardLinkOptions = {}): BytemdPlugin {
   const {
+    locale = Zh_hans,
     defaultIcon = "https://bpic.588ku.com/element_origin_min_pic/00/72/81/9356def45e71de5.jpg",
     openMode = "blank",
     skeletonWrapClass,
@@ -70,8 +74,11 @@ export default function cardLink(options: ByteMDPluginCardLinkOptions = {}): Byt
     timeout = 30 * 1000,
     observerOptions,
   } = options ?? {};
+  if (!loadInfoApi) {
+    printInfo("You should set [loadInfoApi] to load web info.");
+  }
   // because of the loadInfoApi be called in many times, so using the WeakSet to record elements that is undealt to solve it.
-  const observerMap = new WeakSet<HTMLLinkElement>();
+  const renderMap = new WeakSet<HTMLAnchorElement>();
   function renderSkeletonCard(link: string) {
     const root = document.createElement("div");
     addClass(root, "zt-card-bookmark loading");
@@ -95,12 +102,9 @@ export default function cardLink(options: ByteMDPluginCardLinkOptions = {}): Byt
   }
 
   //render data card
-  function renderDataCard(data: Partial<WebInfo>, defaultDesc?: string) {
+  function renderDataCard(data: Partial<WebInfo>, defaultData: Partial<WebInfo> = {}) {
     const root = document.createElement("div");
     const uid = uuidv4();
-    if (!data.desc) {
-      data.desc = defaultDesc ?? "";
-    }
     addClass(root, "zt-card-bookmark");
     if (dataWrapClass) {
       const getClass = dataWrapClass.split(" ").shift() as string;
@@ -108,13 +112,16 @@ export default function cardLink(options: ByteMDPluginCardLinkOptions = {}): Byt
         addClass(root, getClass);
       }
     }
+    if (!data.desc) {
+      data.desc = defaultData.desc;
+    }
     root.innerHTML = `<a class="zt-card-bookmark-link" href="${data.url}" target="${openMode === "self" ? "_self" : "_blank"}">
     <div class="zt-card-bookmark-details">
       <div class="zt-card-bookmark-content">
       <img data-uid="${uid}" class="zt-card-bookmark-image" src="${data.icon}" alt="icon" />
       <div class="zt-card-bookmark-body">
       <div class="zt-card-bookmark-title">
-      ${data?.title ?? data?.desc}
+      ${data?.title ?? ""}
 </div>
       <div class="zt-card-bookmark-desc">${data?.desc ?? data.url}</div>
       </div>
@@ -139,19 +146,19 @@ export default function cardLink(options: ByteMDPluginCardLinkOptions = {}): Byt
     el.removeEventListener("error", iconLoadError);
   }
   //deal link to card
-  function renderCard(aEl: HTMLLinkElement) {
-    const url = aEl?.getAttribute("href") ?? "";
+  function renderCard(aEl: HTMLAnchorElement) {
+    const url = aEl?.href ?? "";
     //not validated link, do nothing
     if (!isHttpOrHttps(url)) return;
     //add link class
     if (!hasClass(aEl, LINK_CLASS)) {
       addClass(aEl, LINK_CLASS);
     }
-    const defaultDesc = aEl?.textContent ?? url;
+    const defaultTitle = locale.default_title;
     const emptyCardRoot = renderSkeletonCard(url);
     aEl.replaceWith(emptyCardRoot);
     const defaultWebInfo: Partial<WebInfo> = {
-      title: defaultDesc,
+      title: defaultTitle,
       url: url,
       icon: defaultIcon as string,
       desc: url,
@@ -173,7 +180,7 @@ export default function cardLink(options: ByteMDPluginCardLinkOptions = {}): Byt
       }, timeout);
     });
     task.then((data) => {
-      emptyCardRoot.replaceWith(renderDataCard(data));
+      emptyCardRoot.replaceWith(renderDataCard(data, defaultWebInfo));
     });
   }
   return {
@@ -225,25 +232,27 @@ export default function cardLink(options: ByteMDPluginCardLinkOptions = {}): Byt
       return p;
     },
     viewerEffect({ markdownBody }): void | (() => void) {
-      const eles = markdownBody.getElementsByClassName(TEMP_LINK_CLASS) as HTMLCollectionOf<HTMLLinkElement>;
+      const eles = markdownBody.getElementsByClassName(TEMP_LINK_CLASS) as HTMLCollectionOf<HTMLAnchorElement>;
       let intersectionObserver: IntersectionObserver | null = null;
       if (window.IntersectionObserver) {
         intersectionObserver = new IntersectionObserver((entries, observer) => {
           entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
-            renderCard(entry.target as HTMLLinkElement);
+            renderCard(entry.target as HTMLAnchorElement);
             //remove from observer
             (intersectionObserver as IntersectionObserver).unobserve(entry.target);
           });
         }, observerOptions);
         Array.from(eles).forEach((ele) => {
-          if (observerMap.has(ele)) return;
+          if (renderMap.has(ele)) return;
           (intersectionObserver as IntersectionObserver).observe(ele);
-          observerMap.add(ele);
+          renderMap.add(ele);
         });
       } else {
         Array.from(eles).forEach((ele) => {
+          if (renderMap.has(ele)) return;
           renderCard(ele);
+          renderMap.add(ele);
         });
       }
       return () => {
@@ -251,4 +260,8 @@ export default function cardLink(options: ByteMDPluginCardLinkOptions = {}): Byt
       };
     },
   };
+}
+
+function printInfo(message: string, type: "warn" = "warn") {
+  console[type].call(null, `[Bytemd-plugin-card-link] ${message}`);
 }
