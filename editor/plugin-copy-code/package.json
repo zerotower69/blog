@@ -1,6 +1,6 @@
 {
   "name": "@zerotower/bytemd-plugin-copy-code",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "type": "module",
   "description": "Copy code plugin for bytemd editor.",
   "private": false,
@@ -9,7 +9,7 @@
     "url": "https://github.com/zerotower69/blog",
     "directory": "editor/plugin-copy-code"
   },
-  "homepage": "https://github.com/zerotower69/editor/plugin-copy-code/README.md",
+  "homepage": "https://github.com/zerotower69/blog/tree/master/editor/plugin-copy-code",
   "keywords": [
     "copy",
     "bytemd",
@@ -32,8 +32,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "npm run clean && rollup -c rollup.config.mjs"
+    "clean": "rimraf dist .rollup.cache tsconfig.tsbuildinfo",
+    "build": "npm run clean && rollup -c rollup.config.mjs --no-cache"
   },
   "dependencies": {
     "clipboard": "^2.0.11",
@@ -51,7 +51,6 @@
     "bytemd": "^1.5.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.14.0",
-    "rollup-plugin-dts": "^6.1.0",
     "unist-util-visit": "^5.0.0"
   },
   "peerDependencies": {

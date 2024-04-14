@@ -1,4 +1,4 @@
-import type {} from "unist-util-visit";
+import type { Node } from "unist";
 export interface MDASTCode extends Node {
   lang?: string;
   meta: null | string;
