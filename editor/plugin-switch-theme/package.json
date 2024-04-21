@@ -34,8 +34,9 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "npm run clean && rollup -c rollup.config.mjs"
+    "clean": "pnpm clean:cache && rimraf dist .turbo node_modules",
+    "clean:cache": "rimraf .rollup.cache tsconfig.tsbuildinfo",
+    "build": "rollup -c rollup.config.mjs"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",

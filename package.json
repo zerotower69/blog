@@ -6,9 +6,13 @@
     "preinstall": "npx only-allow pnpm",
     "clean": "pnpm turbo run clean && rimraf node_modules",
     "lint": "pnpm run -C apps/web lint",
+    "build:plugin": "pnpm turbo run build:plugin",
+    "dev": "pnpm turbo run dev --filter=./apps/web",
+    "build": "pnpm turbo run web#build",
     "changeset": "changeset",
     "version": "pnpm run changeset version",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "cz"
   },
   "keywords": [
     "blog",
@@ -21,6 +25,9 @@
   "author": "zerotower",
   "license": "MIT",
   "dependencies": {
+    "@zerotower/bytemd-plugin-copy-code": "workspace:*",
+    "@zerotower/bytemd-plugin-switch-theme": "workspace:*",
+    "@zerotower/bytemd-plugin-switch-highlight": "workspace:*",
     "@zerotower/bytemd-plugin-card-link": "workspace:*"
   },
   "devDependencies": {

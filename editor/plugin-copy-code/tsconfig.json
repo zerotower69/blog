@@ -7,15 +7,14 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "composite": true,
     "rootDir": "./src",
     "outDir": "./dist",
     "emitDeclarationOnly": true,
+    "composite": false,
     "declaration": true,
     "declarationDir": "./dist",
     "allowImportingTsExtensions": true,
-    "incremental": false,
-    "diagnostics": false
+    "noEmit": true
   },
   "exclude": ["node_modules"],
   "include": ["src/*.ts","locales/**/*.json"]

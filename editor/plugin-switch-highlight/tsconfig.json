@@ -1,18 +1,20 @@
 {
   "compilerOptions": {
+    "target": "ES2015",
     "baseUrl": ".",
     "skipLibCheck": true,
     "jsx": "react",
     "strict": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "composite": true,
+    "composite": false,
     "rootDir": "./src",
     "outDir": "./dist",
     "emitDeclarationOnly": true,
     "declaration": true,
-    "declarationDir": "./dist"
+    "declarationDir": "./dist",
+    "lib": ["es2015","DOM"],
   },
   "exclude": ["node_modules"],
   "include": ["src/**/*.ts","src/locales/*.json","locales/**/*.json"]

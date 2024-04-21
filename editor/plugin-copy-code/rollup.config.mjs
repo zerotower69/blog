@@ -5,8 +5,8 @@ import json from "@rollup/plugin-json"
 import terser from "@rollup/plugin-terser"
 
 export default {
-  extends:"",
   input:"./src/index.ts",
+  cache:false,
   output:[
     {
        file:"./dist/index.mjs",
@@ -21,7 +21,7 @@ export default {
     json(),
     nodeResolve(),
     typescript({
-      tsconfig:"tsconfig.json"
+      outputToFilesystem:false,
     }),
     commonjs({
       include:/node_modules/

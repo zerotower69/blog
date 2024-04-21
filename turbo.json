@@ -4,9 +4,30 @@
     "clean": {
       "dependsOn": ["^clean"]
     },
+    "build:plugin": {
+      "dependsOn": [
+        "@zerotower/bytemd-plugin-copy-code#build",
+        "@zerotower/bytemd-plugin-card-link#build",
+        "@zerotower/bytemd-plugin-switch-theme#build",
+        "@zerotower/bytemd-plugin-switch-highlight#build"
+      ]
+    },
+    "build": {
+      "dependsOn": ["^build"]
+    },
     "dev": {
-      "dependsOn": ["^dev"],
-      "cache": false
+      "dependsOn": ["build:plugin"]
+    },
+    "web#build":{
+      "dependsOn":[
+        "build:plugin"
+      ]
     }
-  }
+  },
+  "globalDependencies": [
+    "@zerotower/bytemd-plugin-copy-code",
+    "@zerotower/bytemd-plugin-card-link",
+    "@zerotower/bytemd-plugin-switch-theme",
+    "@zerotower/bytemd-plugin-switch-highlight"
+  ]
 }

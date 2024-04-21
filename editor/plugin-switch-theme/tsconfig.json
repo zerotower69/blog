@@ -7,7 +7,7 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "composite": true,
+    "composite": false,
     "rootDir": "./src",
     "outDir": "./dist",
     "emitDeclarationOnly": true,

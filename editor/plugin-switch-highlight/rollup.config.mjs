@@ -6,21 +6,24 @@ import terser from "@rollup/plugin-terser"
 
 export default {
   input:"./src/index.ts",
+  cache:false,
   output:[
     {
        file:"./dist/index.mjs",
        format:"es",
+       banner:"//@Copyright zerotower69"
     },
     {
       file:"./dist/index.js",
-      format:"cjs"
+      format:"cjs",
+      banner:"//@Copyright zerotower69"
     }
   ],
   plugins:[
     json(),
     nodeResolve(),
     typescript({
-      tsconfig:"tsconfig.json"
+      outputToFilesystem:false
     }),
     commonjs({
       include:/node_modules/

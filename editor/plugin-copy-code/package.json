@@ -32,8 +32,9 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist .rollup.cache tsconfig.tsbuildinfo",
-    "build": "rimraf .rollup.cache && rollup -c rollup.config.mjs --no-cache"
+    "clean": "pnpm clean:cache && rimraf dist .turbo node_modules",
+    "clean:cache": "rimraf .rollup.cache tsconfig.tsbuildinfo",
+    "build": "rollup -c rollup.config.mjs"
   },
   "dependencies": {
     "clipboard": "^2.0.11",

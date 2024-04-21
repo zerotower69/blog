@@ -11,6 +11,15 @@ importers:
       '@zerotower/bytemd-plugin-card-link':
         specifier: workspace:*
         version: link:editor/plugin-card-link
+      '@zerotower/bytemd-plugin-copy-code':
+        specifier: workspace:*
+        version: link:editor/plugin-copy-code
+      '@zerotower/bytemd-plugin-switch-highlight':
+        specifier: workspace:*
+        version: link:editor/plugin-switch-highlight
+      '@zerotower/bytemd-plugin-switch-theme':
+        specifier: workspace:*
+        version: link:editor/plugin-switch-theme
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.1
