@@ -1,0 +1,9 @@
+# 忽略所有打包文件
+apps/**/dist
+editor/**/dist
+
+#node_modules
+**/node_modules
+
+# ide files
+.idea
