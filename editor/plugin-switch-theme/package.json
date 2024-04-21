@@ -1,0 +1,62 @@
+{
+  "name": "@zerotower/bytemd-plugin-switch-theme",
+  "version": "1.0.1",
+  "type": "module",
+  "description": "Switching markdown render's theme like juejin editor.",
+  "homepage": "https://github.com/zerotower69/editor/plugin-switch-theme/README.md",
+  "bugs": {
+    "url": "https://github.com/zerotower69/blog/issues"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zerotower69/blog",
+    "directory": "editor/plugin-switch-theme"
+  },
+  "keywords": [
+    "theme",
+    "bytemd",
+    "markdown",
+    "editor"
+  ],
+  "author": "zerotower<zerotower@163.com>",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./locales/*": "./locales/*",
+    "./lib/locales/*": "./locales/*"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && rollup -c rollup.config.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "juejin-markdown-themes": "^1.34.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/js-yaml": "^4.0.9",
+    "bytemd": "^1.5.0",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.14.0"
+  },
+  "peerDependencies": {
+    "bytemd": "^1.5.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

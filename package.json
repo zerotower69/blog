@@ -1,13 +1,14 @@
 {
   "name": "react-blog",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Blog of zerotower with react.",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "clear": "rimraf node_modules",
-    "prepare": "husky install",
-    "commit": "cz",
-    "lint": "pnpm run -C apps/web lint"
+    "clean": "pnpm turbo run clean && rimraf node_modules",
+    "lint": "pnpm run -C apps/web lint",
+    "changeset": "changeset",
+    "version": "pnpm run changeset version",
+    "prepare": "husky install"
   },
   "keywords": [
     "blog",
@@ -19,15 +20,19 @@
   ],
   "author": "zerotower",
   "license": "MIT",
+  "dependencies": {
+    "@zerotower/bytemd-plugin-card-link": "workspace:*"
+  },
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "^19.2.2",
     "@commitlint/config-conventional": "^19.2.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
+    "husky": "^8.0.0",
     "only-allow": "^1.2.1",
-    "rimraf": "^5.0.5"
+    "rimraf": "^5.0.5",
+    "turbo": "^1.13.2"
   },
   "packageManager": "pnpm@8.10.0",
   "engines": {

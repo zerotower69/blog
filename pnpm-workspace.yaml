@@ -1,4 +1,4 @@
 packages:
-  - apps/*
-  - docs
-  - editor/*
+  - "apps/*"
+  - "docs"
+  - "editor/*"

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "jsx": "react",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "composite": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "allowImportingTsExtensions": true,
+    "incremental": false,
+    "diagnostics": false
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/*.ts","locales/**/*.json"]
+}

@@ -1,0 +1,90 @@
+.zt-card-bookmark{
+    margin: 10px 0;
+    border-radius: 6px;
+    height: 102px;
+    width: calc(100% - 2px);
+    background-color: #f4f5f5;
+    overflow: hidden;
+}
+.zt-card-bookmark-details{
+    width: calc(100% - 2px);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.zt-card-bookmark-content{
+    flex:1;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.zt-card-bookmark-link{
+    &:before,&:after{
+        background-image: unset!important;
+    }
+    height: 100%;
+    border: unset!important;
+}
+.zt-card-bookmark-image{
+    height: 78px;
+    width: 78px;
+}
+.zt-card-bookmark-body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    margin-left: 16px;
+    justify-content: center;;
+    gap:10px;
+}
+.zt-card-bookmark-title{
+    height: 26px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 26px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+}
+.zt-card-bookmark-desc{
+    color: #585a5a;
+    font-size: 12px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* 定义显示的行数 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.zt-card-bookmark.loading .zt-card-bookmark-title,
+.zt-card-bookmark.loading .zt-card-bookmark-desc,
+.zt-card-bookmark.loading .zt-card-bookmark-image
+{
+    background: linear-gradient(
+            100deg,
+            rgba(255,255,255,0) 40%,
+            rgba(255,255,255,0.6) 50%,
+            rgba(255,255,255,0) 60%
+    );
+    background-size: 200% 100%;
+    background-position-x: 120%;
+    animation: move 1s ease-in-out infinite;
+}
+.zt-card-bookmark.loading .zt-card-bookmark-desc{
+    height: 30px;
+}
+
+@keyframes move {
+    to{
+        background-position-x: -20%;
+    }
+}

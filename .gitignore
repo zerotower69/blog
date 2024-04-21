@@ -10,3 +10,12 @@ editor/**/dist
 
 # cache files
 /apps/web/.next/
+
+# turbo
+.turbo
+**/.turbo/
+
+#tsconfig.tsbuildinfo
+**/tsconfig.tsbuildinfo
+# rollup.cache
+editor/**/.rollup.cache/
