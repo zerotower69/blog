@@ -7,3 +7,6 @@ editor/**/dist
 
 # ide files
 .idea
+
+# cache files
+/apps/web/.next/
