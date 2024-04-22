@@ -1,0 +1,19 @@
+{
+  "name": "@common/config",
+  "version": "1.0.0",
+  "description": "",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "build:tsc": "tsc -p tsconfig.json"
+  },
+  "keywords": ["config"],
+  "author": "zerotwoer<zerotower@163.com>",
+  "license": "ISC",
+  "dependencies": {
+    "yaml": "^2.4.0"
+  }
+}

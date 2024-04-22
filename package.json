@@ -7,7 +7,7 @@
     "clean": "pnpm turbo run clean && rimraf node_modules",
     "lint": "pnpm run -C apps/web lint",
     "build:plugin": "pnpm turbo run build:plugin",
-    "dev": "pnpm turbo run dev --filter=./apps/web",
+    "dev": "pnpm turbo run dev --filter=./apps/* --filter=!./apps/docs",
     "build": "pnpm turbo run web#build",
     "changeset": "changeset",
     "version": "pnpm run changeset version",
@@ -28,7 +28,9 @@
     "@zerotower/bytemd-plugin-copy-code": "workspace:*",
     "@zerotower/bytemd-plugin-switch-theme": "workspace:*",
     "@zerotower/bytemd-plugin-switch-highlight": "workspace:*",
-    "@zerotower/bytemd-plugin-card-link": "workspace:*"
+    "@zerotower/bytemd-plugin-card-link": "workspace:*",
+    "@common/bucket": "workspace:*",
+    "@common/config": "workspace:*"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",

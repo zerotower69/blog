@@ -19,3 +19,9 @@ editor/**/dist
 **/tsconfig.tsbuildinfo
 # rollup.cache
 editor/**/.rollup.cache/
+
+#backend
+apps/backend/log
+apps/backend/upload
+apps/backend/application.local.yaml
+apps/backend/application.prod.yaml

@@ -1,0 +1,2 @@
+export declare const QINIU_MODULE_OPTIONS = "QINIU_MODULE_OPTIONS";
+export declare const QINIU_CONFIG_SERVICE = "QINIU_CONFIG_SERVICE";
